@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ShiXiPai</string>
+
+    <!-- 登陆 -->
+    <string name="network_not_connected">Network is not connected</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="login_username_hint">TWT Username/Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_btn_text">Login</string>
+    <string name="login_error_empty">Can Not Be Empty</string>
+    <string name="login_signin">Sign In</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="drawer_list_items">
+        <item>@string/drawer_item_setting</item>
+        <item>@string/drawer_item_share</item>
+        <item>@string/drawer_item_feedback</item>
+    </string-array>
+
+</resources>

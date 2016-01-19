@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Drawer strings -->
+    <string name="drawer_item_setting">设置</string>
+    <string name="drawer_item_share">分享APP</string>
+    <string name="drawer_item_feedback">意见反馈</string>
+    <!-- Drawer strings -->
+
+</resources>
