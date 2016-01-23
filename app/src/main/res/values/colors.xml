@@ -2,5 +2,7 @@
 <resources>
     <color name="color_primary"> #00BBFF</color>
     <color name="color_accent_dark"> #33CCFF</color>
+    <color name="color_light_grey">#AAAAAA</color>
+    <color name="white">#ffffff</color>
 
 </resources>

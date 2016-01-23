@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Drawer strings -->
+    <!-- 侧滑菜单 -->
     <string name="drawer_item_setting">设置</string>
     <string name="drawer_item_share">分享APP</string>
     <string name="drawer_item_feedback">意见反馈</string>
-    <!-- Drawer strings -->
+
+    <!--主活动底部-->
+    <string name="main_tag_home">首页</string>
+    <string name="main_tag_job">职位</string>
+    <string name="main_tag_resume">简历</string>
+
+    <!--职位fragment_tabs-->
+    <string name="job_tabs_recommend">实习推荐</string>
+    <string name="job_tabs_comiited">投递信息</string>
+
+    <!--职位列表item-->
+    <string name="item_job_list_place">地点</string>
+    <string name="item_job_list_position">职位</string>
+    <string name="item_job_list_company">单位</string>
+    <string name="item_job_list_money">薪资</string>
+    <string name="item_job_list_uncommit">投递简历</string>
+    <string name="item_job_list_commited">已投递</string>
+
+    <!--加载信息 -->
+    <string name="no_more_information">没有更多消息</string>
 
 </resources>

@@ -14,4 +14,7 @@ public interface MainView {
 
     void shareApp();
 
+    //将底部标签变为全部未点击
+    void setUnSelect();
+
 }

@@ -19,6 +19,8 @@ public class ApiClient {
 
     private static final String LOGIN_URL = "android-cli-user-aha/login";
 
+    private static final String JOB_CLASSIFY_URL = "http://182.92.11.218/shixipaiAPI/intern-datas/industry/";
+
 
     static {
         client.setTimeout(DEFAULT_TIMEOUT);
@@ -41,5 +43,14 @@ public class ApiClient {
         sCookieStore.clear();
         PrefUtils.setLogin(false);
     }
+
+    public static void getJobItems(int page,int type,JsonHttpResponseHandler handler) {
+        RequestParams params = new RequestParams();
+        params.put("page", page);
+
+        client.get(JOB_CLASSIFY_URL+String.valueOf(type), params, handler);
+
+    }
+
 
 }
