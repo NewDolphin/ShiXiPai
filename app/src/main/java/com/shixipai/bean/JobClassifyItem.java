@@ -1,6 +1,5 @@
 package com.shixipai.bean;
 
-import android.widget.ImageView;
 
 /**
  * Created by xiepeng on 16/1/23.

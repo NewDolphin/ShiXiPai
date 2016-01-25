@@ -13,6 +13,7 @@ import com.shixipai.R;
 import com.shixipai.bean.JobItem;
 import com.shixipai.ui.BaseFragment;
 import com.shixipai.ui.common.OnItemClickListener;
+import com.shixipai.ui.jobClassify.jobClassifyList.JobListAdapter;
 
 import java.util.Arrays;
 import java.util.List;

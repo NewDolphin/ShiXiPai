@@ -4,32 +4,36 @@ package com.shixipai.bean;
  * Created by xiepeng on 16/1/20.
  */
 public class JobItem {
-    private String id;
+    private int id;
     private String area;
     private String start_time;
     private String title;
     private String company;
     private String salary;
+    //0表示未投递，1表示已投递
+    private int posted;
 
     public JobItem(){
 
     }
 
 
-    public JobItem(String id, String area, String start_time, String title, String company, String salary) {
+    public JobItem(int id, String area, String start_time, String title, String company,
+                   String salary, int posted) {
         this.id = id;
         this.area = area;
         this.start_time = start_time;
         this.title = title;
         this.company = company;
         this.salary = salary;
+        this.posted = posted;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -71,5 +75,13 @@ public class JobItem {
 
     public void setSalary(String salary) {
         this.salary = salary;
+    }
+
+    public int getPosted() {
+        return posted;
+    }
+
+    public void setPosted(int posted) {
+        this.posted = posted;
     }
 }

@@ -21,8 +21,8 @@
 
             <ImageView
                 android:id="@+id/_place"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginLeft="5dp"
                 android:src="@mipmap/icon_job_place"/>
 
@@ -38,7 +38,7 @@
                 android:id="@+id/tv_job_item_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="15dp"/>
 
@@ -47,7 +47,7 @@
         <LinearLayout
             android:id="@+id/l2"
             android:layout_below="@+id/l1"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -55,15 +55,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:layout_marginLeft="25dp"
+                android:layout_gravity="center_vertical"
                 android:text="@string/item_job_list_position"/>
 
             <TextView
                 android:id="@+id/tv_job_item_postion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp" />
 
         </LinearLayout>
@@ -79,15 +81,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:layout_marginLeft="25dp"
+                android:layout_gravity="center_vertical"
                 android:text="@string/item_job_list_company"/>
 
             <TextView
                 android:id="@+id/tv_job_item_company"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp" />
 
         </LinearLayout>
@@ -103,28 +107,30 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:layout_marginLeft="25dp"
+                android:layout_gravity="center_vertical"
                 android:text="@string/item_job_list_money"/>
 
             <TextView
                 android:id="@+id/tv_job_item_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp" />
 
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="20dp"
             android:layout_below="@+id/l4"/>
 
         <Button
             android:id="@+id/bt_job_item_commit"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
             android:layout_below="@+id/l3"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"

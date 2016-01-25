@@ -4,6 +4,8 @@ import android.util.Log;
 
 import com.shixipai.interactor.JobClassifyListInteractor;
 import com.shixipai.interactor.JobClassifyListInteractorImpl;
+import com.shixipai.interactor.JobDetailInteractor;
+import com.shixipai.interactor.JobDetailInteractorImpl;
 import com.shixipai.interactor.JobInteractor;
 import com.shixipai.interactor.JobInteractorImpl;
 import com.shixipai.interactor.LoginInteractor;
@@ -36,6 +38,11 @@ public class InteractorsModule {
     @Provides @Singleton
     public JobClassifyListInteractor provideJobClassifyInteractor() {
         return new JobClassifyListInteractorImpl();
+    }
+
+    @Provides @Singleton
+    public JobDetailInteractor provideJobDetailInteractor() {
+        return new JobDetailInteractorImpl();
     }
 
 }

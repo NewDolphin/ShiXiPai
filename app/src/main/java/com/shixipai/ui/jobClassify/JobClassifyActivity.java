@@ -2,10 +2,13 @@ package com.shixipai.ui.jobClassify;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.shixipai.R;
@@ -40,6 +43,13 @@ public class JobClassifyActivity extends AppCompatActivity implements OnItemClic
         setContentView(R.layout.activity_job_classify);
         ButterKnife.bind(this);
 
+        toolbar.setTitle("职位分类");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+
         initData();
 
         recyclerView.setAdapter(adapter);
@@ -55,7 +65,7 @@ public class JobClassifyActivity extends AppCompatActivity implements OnItemClic
         datas.add(new JobClassifyItem("人力资源/产品", R.mipmap.ic_job_kind5));
         datas.add(new JobClassifyItem("汽车/制造", R.mipmap.ic_job_kind6));
         datas.add(new JobClassifyItem("文化/传媒", R.mipmap.ic_job_kind7));
-        datas.add(new JobClassifyItem("教育//医疗", R.mipmap.ic_job_kind8));
+        datas.add(new JobClassifyItem("教育/医疗", R.mipmap.ic_job_kind8));
         datas.add(new JobClassifyItem("文案/管理", R.mipmap.ic_job_kind9));
 
         adapter = new JobClassifyAdapter(datas,this);
@@ -75,8 +85,23 @@ public class JobClassifyActivity extends AppCompatActivity implements OnItemClic
 
     private void startJobClassifyListActivity(int postion){
         Intent intent = new Intent(this, JobClassifyListActivity.class);
-        intent.putExtra("tag",postion);
+        intent.putExtra("tag", postion);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

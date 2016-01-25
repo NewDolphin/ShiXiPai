@@ -1,8 +1,7 @@
-package com.shixipai.ui.job.list;
+package com.shixipai.ui.jobClassify.jobClassifyList;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,9 +63,6 @@ public class JobListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public static class FooterHolder extends RecyclerView.ViewHolder {
-
-//        @Bind(R.id.tv_footer_load_more)
-//        TextView tvLoadMore;
         @Bind(R.id.pb_footer_load_more)
         ProgressBar pbLoadMore;
 
@@ -110,6 +106,15 @@ public class JobListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             itemHolder.tv_position.setText(jobItem.getTitle());
             itemHolder.tv_momey.setText(jobItem.getSalary());
             itemHolder.tv_company.setText(jobItem.getCompany());
+
+            View.OnClickListener onClickListener = new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    onItemClicked.onItemClicked(v,position);
+                }
+            };
+            itemHolder.bt_commit.setOnClickListener(onClickListener);
         }
     }
 

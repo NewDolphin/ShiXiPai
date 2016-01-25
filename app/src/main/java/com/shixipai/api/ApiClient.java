@@ -19,7 +19,9 @@ public class ApiClient {
 
     private static final String LOGIN_URL = "android-cli-user-aha/login";
 
-    private static final String JOB_CLASSIFY_URL = "http://182.92.11.218/shixipaiAPI/intern-datas/industry/";
+    private static final String JOB_CLASSIFY_LIST_URL = "intern-datas/industry/";
+
+    private static final String JOB_DETAIL_URL = "internship-datas-detail-nxmkclsiahegbxpoi/";
 
 
     static {
@@ -48,8 +50,11 @@ public class ApiClient {
         RequestParams params = new RequestParams();
         params.put("page", page);
 
-        client.get(JOB_CLASSIFY_URL+String.valueOf(type), params, handler);
+        client.get(BASE_URL+JOB_CLASSIFY_LIST_URL + String.valueOf(type), params, handler);
+    }
 
+    public static void getJobDetail(int id, JsonHttpResponseHandler handler){
+        client.get(BASE_URL+JOB_DETAIL_URL+String.valueOf(id),handler);
     }
 
 

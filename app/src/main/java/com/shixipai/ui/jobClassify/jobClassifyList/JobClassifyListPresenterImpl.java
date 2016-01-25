@@ -1,13 +1,11 @@
 package com.shixipai.ui.jobClassify.jobClassifyList;
 
-import android.util.Log;
 import android.view.View;
 
 import com.shixipai.R;
 import com.shixipai.bean.JobItem;
 import com.shixipai.bean.JobResponse;
 import com.shixipai.interactor.JobClassifyListInteractor;
-import com.shixipai.interactor.JobInteractor;
 import com.shixipai.support.ResourceHelper;
 import com.shixipai.ui.common.OnGetJobItemsCallback;
 
@@ -67,20 +65,11 @@ public class JobClassifyListPresenterImpl implements JobClassifyListPresenter, O
 
     @Override
     public void onItemClicked(View v, int position) {
-//        switch (v.getId()) {
-//            case R.id.tv_home_item_username:
-//                _jobListView.startProfileActivity(position);
-//                break;
-//            case R.id.iv_home_item_avatar:
-//                _jobListView.startProfileActivity(position);
-//                break;
-//            case R.id.tv_home_item_title:
-//                _jobListView.startQuestionArticlActivity(position);
-//                break;
-//            case R.id.tv_home_item_content:
-//                _jobListView.startQuestionArticlActivity(position);
-//                break;
-//        }
+        switch (v.getId()) {
+            case R.id.bt_job_item_commit:
+                jobClassifyListView.startJobDetailActivity(position);
+                break;
+        }
     }
 
     @Override
