@@ -16,7 +16,6 @@ import dagger.Provides;
         },
         addsTo = AppModule.class,
         library = true
-
 )
 
 public class JobClassifyListModule {

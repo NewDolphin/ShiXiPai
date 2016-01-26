@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.shixipai.ui.job.JobFragment">
+    tools:context="com.shixipai.ui.jobFeedback.JobFragment">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs_job"

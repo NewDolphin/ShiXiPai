@@ -165,7 +165,6 @@ public class JobClassifyListActivity extends BaseActivity implements JobClassify
     @Override
     public void showFooter() {
         adapter.setUseFooter(true);
-
     }
 
     @Override

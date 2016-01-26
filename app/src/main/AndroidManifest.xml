@@ -39,6 +39,8 @@
         </activity>
         <activity android:name=".ui.jobClassify.jobClassifyDetail.JobClassifyDetailActivity">
         </activity>
+        <activity android:name=".ui.interview.InterviewActivity">
+        </activity>
     </application>
 
 </manifest>

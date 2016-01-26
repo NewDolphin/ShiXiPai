@@ -1,4 +1,4 @@
-package com.shixipai.ui.common;
+package com.shixipai.ui.common.job;
 
 import com.shixipai.bean.JobResponse;
 

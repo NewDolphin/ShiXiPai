@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/material_grey_300"
-    tools:context="com.shixipai.ui.job.list.JobListFragment">
+    tools:context="com.shixipai.ui.jobFeedback.list.JobListFragment">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/job_list_swipe_refresh_layout"

@@ -8,9 +8,5 @@
     </string-array>
 
     <!--职位fragment_tabs-->
-    <string-array name="job_tab_titles">
-        <item>@string/job_tabs_recommend</item>
-        <item>@string/job_tabs_comiited</item>
-    </string-array>
 
 </resources>

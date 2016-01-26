@@ -1,6 +1,5 @@
 package com.shixipai.interactor;
 
-import com.shixipai.ui.common.OnGetJobItemsCallback;
 import com.shixipai.ui.jobClassify.jobClassifyDetail.OnGetJobDetailCallback;
 
 /**

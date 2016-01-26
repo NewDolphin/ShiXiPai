@@ -1,6 +1,6 @@
 package com.shixipai.interactor;
 
-import com.shixipai.ui.common.OnGetJobItemsCallback;
+import com.shixipai.ui.common.job.OnGetJobItemsCallback;
 
 /**
  * Created by xiepeng on 16/1/23.

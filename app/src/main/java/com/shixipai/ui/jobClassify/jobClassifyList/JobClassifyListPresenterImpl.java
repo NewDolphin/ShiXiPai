@@ -7,7 +7,7 @@ import com.shixipai.bean.JobItem;
 import com.shixipai.bean.JobResponse;
 import com.shixipai.interactor.JobClassifyListInteractor;
 import com.shixipai.support.ResourceHelper;
-import com.shixipai.ui.common.OnGetJobItemsCallback;
+import com.shixipai.ui.common.job.OnGetJobItemsCallback;
 
 import java.util.List;
 
@@ -73,11 +73,11 @@ public class JobClassifyListPresenterImpl implements JobClassifyListPresenter, O
     }
 
     @Override
-    public void onSuccess(JobResponse exploreResponse) {
+    public void onSuccess(JobResponse jobResponse) {
         this.jobClassifyListView.stopRefresh();
 
-        if (exploreResponse.rows.size() > 0) {
-            List<JobItem> items = exploreResponse.rows;
+        if (jobResponse.rows.size() > 0) {
+            List<JobItem> items = jobResponse.rows;
             if (isLoadMore) {
                 jobClassifyListView.addListData(items);
                 isLoadMore = false;

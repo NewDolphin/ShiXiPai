@@ -4,15 +4,17 @@
     <string name="drawer_item_setting">设置</string>
     <string name="drawer_item_share">分享APP</string>
     <string name="drawer_item_feedback">意见反馈</string>
-
+    
     <!--主活动底部-->
     <string name="main_tag_home">首页</string>
     <string name="main_tag_job">职位</string>
     <string name="main_tag_resume">简历</string>
-
-    <!--职位fragment_tabs-->
-    <string name="job_tabs_recommend">实习推荐</string>
-    <string name="job_tabs_comiited">投递信息</string>
+    
+    <!--HomeFragment-->
+    <string name="home_classify">职位分类</string>
+    <string name="home_interview">笔试面试</string>
+    <string name="home_skill">实习攻略</string>
+    <string name="home_recommend">实习推荐</string>
 
     <!--职位列表item-->
     <string name="item_job_list_place">地点</string>

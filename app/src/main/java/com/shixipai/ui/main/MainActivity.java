@@ -1,34 +1,25 @@
 package com.shixipai.ui.main;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.holder.BadgeStyle;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.shixipai.R;
@@ -36,7 +27,7 @@ import com.shixipai.support.PrefUtils;
 import com.shixipai.support.ResourceHelper;
 import com.shixipai.ui.BaseActivity;
 import com.shixipai.ui.home.HomeFragment;
-import com.shixipai.ui.job.JobFragment;
+import com.shixipai.ui.jobFeedback.JobFragment;
 import com.shixipai.ui.resume.ResumeFragment;
 
 import java.util.Arrays;
@@ -106,6 +97,7 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
 
         mContext = this;
 
+        toolbar.setTitle("实习派");
         setSupportActionBar(toolbar);
         initialDrawer(savedInstanceState);
 
