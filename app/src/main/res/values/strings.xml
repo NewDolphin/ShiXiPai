@@ -9,4 +9,42 @@
     <string name="login_btn_text">Login</string>
     <string name="login_error_empty">Can Not Be Empty</string>
     <string name="login_signin">Sign In</string>
+
+    <!-- 侧滑菜单 -->
+    <string name="drawer_item_setting">设置</string>
+    <string name="drawer_item_share">分享APP</string>
+    <string name="drawer_item_feedback">意见反馈</string>
+
+    <!--主活动底部-->
+    <string name="main_tag_home">首页</string>
+    <string name="main_tag_job">职位</string>
+    <string name="main_tag_resume">简历</string>
+
+    <!--HomeFragment-->
+    <string name="home_classify">职位分类</string>
+    <string name="home_interview">笔试面试</string>
+    <string name="home_skill">实习攻略</string>
+    <string name="home_recommend">实习推荐</string>
+
+    <!--职位列表item-->
+    <string name="item_job_list_place">地点</string>
+    <string name="item_job_list_position">职位</string>
+    <string name="item_job_list_company">单位</string>
+    <string name="item_job_list_money">薪资</string>
+    <string name="item_job_list_uncommit">投递简历</string>
+    <string name="item_job_list_commited">已投递</string>
+
+    <!--加载信息 -->
+    <string name="no_more_information">没有更多消息</string>
+
+    <!--面试题目分类-->
+    <string name="interview_title1">互联网</string>
+    <string name="interview_title2">金融/法律</string>
+    <string name="interview_title3">建设工程</string>
+    <string name="interview_title4">销售/推广</string>
+    <string name="interview_title5">人力资源/产品</string>
+    <string name="interview_title6">汽车/制造</string>
+    <string name="interview_title7">文化/传媒</string>
+    <string name="interview_title8">教育/医疗</string>
+    <string name="interview_title9">文案/管理</string>
 </resources>
