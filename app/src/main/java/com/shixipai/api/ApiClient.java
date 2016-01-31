@@ -1,5 +1,7 @@
 package com.shixipai.api;
 
+import android.util.Log;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.PersistentCookieStore;
@@ -23,6 +25,9 @@ public class ApiClient {
 
     private static final String JOB_DETAIL_URL = "internship-datas-detail-nxmkclsiahegbxpoi/";
 
+    private static final String INTERVIEW_TOPIC_URL = "questions/kind/";
+
+    private static final String INTERVIEW_QUESTION_URL = "questions/topic/";
 
     static {
         client.setTimeout(DEFAULT_TIMEOUT);
@@ -50,12 +55,24 @@ public class ApiClient {
         RequestParams params = new RequestParams();
         params.put("page", page);
 
-        client.get(BASE_URL+JOB_CLASSIFY_LIST_URL + String.valueOf(type), params, handler);
+        client.get(BASE_URL + JOB_CLASSIFY_LIST_URL + String.valueOf(type), params, handler);
     }
 
     public static void getJobDetail(int id, JsonHttpResponseHandler handler){
         client.get(BASE_URL+JOB_DETAIL_URL+String.valueOf(id),handler);
     }
 
+    public static void getTopicItems(int page,int type,JsonHttpResponseHandler handler){
+        RequestParams params = new RequestParams();
+        params.put("page", page);
 
+        client.get(BASE_URL+INTERVIEW_TOPIC_URL+String.valueOf(type+1),params,handler);
+    }
+
+    public static void getQuestionItems(int page,int type,JsonHttpResponseHandler handler){
+        RequestParams params = new RequestParams();
+        params.put("page", page);
+
+        client.get(BASE_URL+INTERVIEW_QUESTION_URL+String.valueOf(type),params,handler);
+    }
 }

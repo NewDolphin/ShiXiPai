@@ -6,6 +6,12 @@ import com.shixipai.interactor.JobDetailInteractor;
 import com.shixipai.interactor.JobDetailInteractorImpl;
 import com.shixipai.interactor.LoginInteractor;
 import com.shixipai.interactor.LoginInteractorImpl;
+import com.shixipai.interactor.interview.InterviewQuestionInteractor;
+import com.shixipai.interactor.interview.InterviewQuestionInteractorImpl;
+import com.shixipai.interactor.interview.InterviewTopicInteractor;
+import com.shixipai.interactor.interview.InterviewTopicInteractorImpl;
+import com.shixipai.ui.interview.topic.InterviewTopicPresenter;
+import com.shixipai.ui.interview.topic.InterviewTopicPresenterImpl;
 
 import javax.inject.Singleton;
 
@@ -36,6 +42,18 @@ public class InteractorsModule {
     @Singleton
     public JobDetailInteractor provideJobDetailInteractor() {
         return new JobDetailInteractorImpl();
+    }
+
+    @Provides
+    @Singleton
+    public InterviewTopicInteractor provideInterviewTopicPresenter(){
+        return new InterviewTopicInteractorImpl();
+    }
+
+    @Provides
+    @Singleton
+    public InterviewQuestionInteractor provideInterviewQuestionInteractor(){
+        return new InterviewQuestionInteractorImpl();
     }
 
 }

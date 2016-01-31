@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <include
-        android:id="@+id/toolbar_interview"
+        android:id="@+id/toolbar_interview_topic"
         layout="@layout/app_toolbar" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview_interview"
-        android:scrollbars="vertical"
+        android:id="@+id/recyclerview_interview_topic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:choiceMode="singleChoice"
-        android:divider="@null" />
+        android:divider="@null"
+        android:scrollbars="vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
 
 </LinearLayout>

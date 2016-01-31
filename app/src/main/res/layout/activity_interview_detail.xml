@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar_interview_detail"
+        layout="@layout/app_toolbar" />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_interview_detail"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <TextView
+            android:id="@+id/tv_interview_detail_q_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_interview_detail_q_content"
+            android:layout_marginLeft="15dp"
+            android:text="Q1."
+            android:textColor="@color/color_primary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_interview_detail_q_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@+id/tv_interview_detail_q_index"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="请你谈谈cookie的弊端"
+            android:textColor="@color/color_text_primary"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            android:typeface="serif" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/sv_interview_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_interview_detail_a_index"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="A1."
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#FFAA33"/>
+
+            <TextView
+                android:id="@+id/tv_interview_detail_a_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="17sp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/pb_interview_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

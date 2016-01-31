@@ -39,7 +39,17 @@
         </activity>
         <activity android:name=".ui.jobClassify.jobClassifyDetail.JobClassifyDetailActivity">
         </activity>
-        <activity android:name=".ui.interview.InterviewActivity">
+        <activity android:name=".ui.interview.InterviewActivity"
+            android:label="分类">
+        </activity>
+        <activity android:name=".ui.interview.topic.InterviewTopicActivity"
+            android:label="笔试面试">
+        </activity>
+        <activity android:name=".ui.interview.question.InterviewQuestionActivity"
+            android:label="话题">
+        </activity>
+        <activity android:name=".ui.interview.detail.InterviewDetailActivity"
+            android:label="答案详情">
         </activity>
     </application>
 

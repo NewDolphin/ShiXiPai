@@ -113,9 +113,6 @@ public class JobClassifyListActivity extends BaseActivity implements JobClassify
 
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
     }
 
     @Override

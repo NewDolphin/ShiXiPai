@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_interview_question"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+    <TextView
+        android:id="@+id/tv_interview_question_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Q1."
+        android:textColor="@color/color_primary"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/tv_interview_question_content" />
+
+    <TextView
+        android:id="@+id/tv_interview_question_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请你谈谈cookie的弊端"
+        android:typeface="serif"
+        android:textStyle="normal"
+        android:textColor="@color/color_text_primary"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/tv_interview_question_index"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:maxLines="2"
+        android:ellipsize="end"/>
+
+</RelativeLayout>

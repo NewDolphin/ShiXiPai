@@ -5,5 +5,7 @@
     <color name="color_light_grey">#AAAAAA</color>
     <color name="white">#ffffff</color>
     <color name="color_divider_white">#eeeeee</color>
+    <color name="color_text_primary">#212121</color>
+    <color name="color_text_secondary">#727272</color>
 
 </resources>

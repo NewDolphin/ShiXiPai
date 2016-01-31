@@ -7,6 +7,16 @@
         <item>@string/drawer_item_feedback</item>
     </string-array>
 
-    <!--职位fragment_tabs-->
+    <string-array name="interview_title">
+        <item>@string/interview_title1</item>
+        <item>@string/interview_title2</item>
+        <item>@string/interview_title3</item>
+        <item>@string/interview_title4</item>
+        <item>@string/interview_title5</item>
+        <item>@string/interview_title6</item>
+        <item>@string/interview_title7</item>
+        <item>@string/interview_title8</item>
+        <item>@string/interview_title9</item>
+    </string-array>
 
 </resources>

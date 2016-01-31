@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -132,12 +133,12 @@ public class HomeFragment extends Fragment implements HomeView,OnItemClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.layout_home_classify:
+                Log.i("test","click");
                 Intent intent1 = new Intent(getActivity(), JobClassifyActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.layout_home_interview:
-                Intent intent2 = new Intent(getActivity(), InterviewActivity.class);
-                startActivity(intent2);
+                InterviewActivity.actionStart(getActivity());
                 break;
         }
     }
