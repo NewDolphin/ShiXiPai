@@ -29,6 +29,8 @@ public class ApiClient {
 
     private static final String INTERVIEW_QUESTION_URL = "questions/topic/";
 
+    private static final String SEARCH_URL = "intern-datas-tuijianRecommali-li";
+
     static {
         client.setTimeout(DEFAULT_TIMEOUT);
         client.setCookieStore(sCookieStore);
@@ -74,5 +76,14 @@ public class ApiClient {
         params.put("page", page);
 
         client.get(BASE_URL+INTERVIEW_QUESTION_URL+String.valueOf(type),params,handler);
+    }
+
+    public static void getSearchJobItems(int page, String cityCondition, String jobCondition, JsonHttpResponseHandler handler){
+        RequestParams params = new RequestParams();
+        params.put("page", page);
+        params.put("city",cityCondition);
+        params.put("industry",jobCondition);
+
+        client.post(BASE_URL+SEARCH_URL,params,handler);
     }
 }

@@ -47,4 +47,22 @@
     <string name="interview_title7">文化/传媒</string>
     <string name="interview_title8">教育/医疗</string>
     <string name="interview_title9">文案/管理</string>
+
+    <!--搜索职位地点-->
+    <string name="job_place1">北京</string>
+    <string name="job_place2">上海</string>
+    <string name="job_place3">广州</string>
+    <string name="job_place4">深圳</string>
+    <string name="job_place5">天津</string>
+    <string name="job_place6">重庆</string>
+    <string name="job_place7">武汉</string>
+    <string name="job_place8">长沙</string>
+    <string name="job_place9">杭州</string>
+    <string name="job_place10">南京</string>
+    <string name="job_place11">沈阳</string>
+    <string name="job_place12">哈尔滨</string>
+    <string name="job_place13">济南</string>
+    <string name="job_place14">成都</string>
+
+
 </resources>

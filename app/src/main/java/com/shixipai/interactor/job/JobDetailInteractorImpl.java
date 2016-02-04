@@ -1,9 +1,10 @@
-package com.shixipai.interactor;
+package com.shixipai.interactor.job;
 
 import com.google.gson.Gson;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.shixipai.api.ApiClient;
 import com.shixipai.bean.JobDetail;
+import com.shixipai.interactor.job.JobDetailInteractor;
 import com.shixipai.ui.jobClassify.jobClassifyDetail.OnGetJobDetailCallback;
 import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;

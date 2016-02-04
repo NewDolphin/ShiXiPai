@@ -19,4 +19,37 @@
         <item>@string/interview_title9</item>
     </string-array>
 
+    <!--职位搜索职位分类-->
+    <string-array name="job_title">
+        <item>全部</item>
+        <item>@string/interview_title1</item>
+        <item>@string/interview_title2</item>
+        <item>@string/interview_title3</item>
+        <item>@string/interview_title4</item>
+        <item>@string/interview_title5</item>
+        <item>@string/interview_title6</item>
+        <item>@string/interview_title7</item>
+        <item>@string/interview_title8</item>
+        <item>@string/interview_title9</item>
+    </string-array>
+
+    <!--搜索职位地点-->
+    <string-array name="job_place">
+        <item>全部</item>
+        <item>@string/job_place1</item>
+        <item>@string/job_place2</item>
+        <item>@string/job_place3</item>
+        <item>@string/job_place4</item>
+        <item>@string/job_place5</item>
+        <item>@string/job_place6</item>
+        <item>@string/job_place7</item>
+        <item>@string/job_place8</item>
+        <item>@string/job_place9</item>
+        <item>@string/job_place10</item>
+        <item>@string/job_place11</item>
+        <item>@string/job_place12</item>
+        <item>@string/job_place13</item>
+        <item>@string/job_place14</item>
+    </string-array>
+
 </resources>

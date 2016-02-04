@@ -1,4 +1,4 @@
-package com.shixipai.interactor;
+package com.shixipai.interactor.home;
 
 /**
  * Created by xiepeng on 16/1/26.

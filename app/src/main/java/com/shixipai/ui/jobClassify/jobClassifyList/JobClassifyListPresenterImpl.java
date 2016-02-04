@@ -5,7 +5,7 @@ import android.view.View;
 import com.shixipai.R;
 import com.shixipai.bean.JobItem;
 import com.shixipai.bean.JobResponse;
-import com.shixipai.interactor.JobClassifyListInteractor;
+import com.shixipai.interactor.job.JobClassifyListInteractor;
 import com.shixipai.support.ResourceHelper;
 import com.shixipai.ui.common.job.OnGetJobItemsCallback;
 
@@ -71,6 +71,7 @@ public class JobClassifyListPresenterImpl implements JobClassifyListPresenter, O
                 break;
         }
     }
+
 
     @Override
     public void onSuccess(JobResponse jobResponse) {

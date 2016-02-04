@@ -1,7 +1,7 @@
 package com.shixipai.ui.jobClassify.jobClassifyDetail;
 
 import com.shixipai.bean.JobDetail;
-import com.shixipai.interactor.JobDetailInteractor;
+import com.shixipai.interactor.job.JobDetailInteractor;
 
 /**
  * Created by xiepeng on 16/1/25.

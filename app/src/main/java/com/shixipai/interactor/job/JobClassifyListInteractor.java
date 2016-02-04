@@ -1,4 +1,4 @@
-package com.shixipai.interactor;
+package com.shixipai.interactor.job;
 
 import com.shixipai.ui.common.job.OnGetJobItemsCallback;
 

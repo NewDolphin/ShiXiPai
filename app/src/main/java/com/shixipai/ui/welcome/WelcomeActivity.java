@@ -39,7 +39,7 @@ public class WelcomeActivity extends Activity {
                 WelcomeActivity.this.startActivity(intent);
                 WelcomeActivity.this.finish();
             }
-        }, 1000);
+        }, 2000);
 
     }
 }

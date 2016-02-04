@@ -135,7 +135,7 @@ public class InterviewQuestionActivity extends BaseActivity implements Interview
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
     }
 
     @Override

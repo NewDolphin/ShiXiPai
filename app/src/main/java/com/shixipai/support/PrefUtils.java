@@ -14,6 +14,8 @@ public class PrefUtils {
     private static final String PREF_USERNAME = "username";
     private static final String PREF_PASSWORD = "password";
     private static final String PREF_IS_LOGIN = "is_login";
+    private static final String PREF_CITY_CONDITION = "city_condition";
+    private static final String PREF_JOB_CONDITION = "job_condition";
 
     public static SharedPreferences getDefaultSharedPreferences() {
         return PreferenceManager.getDefaultSharedPreferences(ShiXiPaiApp.getContext());
@@ -23,6 +25,8 @@ public class PrefUtils {
         getDefaultSharedPreferences().edit()
                 .putString(PREF_USERNAME, user.getUsername())
                 .putString(PREF_PASSWORD, user.getPassword())
+                .putString(PREF_CITY_CONDITION,"全部")
+                .putString(PREF_JOB_CONDITION,"全部")
                 .apply();
     }
 
@@ -40,5 +44,21 @@ public class PrefUtils {
 
     public static boolean isLogin() {
         return getDefaultSharedPreferences().getBoolean(PREF_IS_LOGIN, false);
+    }
+
+    public static void setCityCondition(String city){
+        getDefaultSharedPreferences().edit().putString(PREF_CITY_CONDITION, city);
+    }
+
+    public static String getCityCondition(){
+        return getDefaultSharedPreferences().getString(PREF_CITY_CONDITION, "全部");
+    }
+
+    public static void setJobCondition(String job){
+        getDefaultSharedPreferences().edit().putString(PREF_JOB_CONDITION,job);
+    }
+
+    public static String getJobCondition(){
+        return getDefaultSharedPreferences().getString(PREF_JOB_CONDITION,"全部");
     }
 }

@@ -1,4 +1,4 @@
-package com.shixipai.interactor;
+package com.shixipai.interactor.job;
 
 import android.util.Log;
 
@@ -8,6 +8,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.shixipai.api.ApiClient;
 import com.shixipai.bean.JobItem;
 import com.shixipai.bean.JobResponse;
+import com.shixipai.interactor.job.JobClassifyListInteractor;
 import com.shixipai.ui.common.job.OnGetJobItemsCallback;
 
 import org.json.JSONException;

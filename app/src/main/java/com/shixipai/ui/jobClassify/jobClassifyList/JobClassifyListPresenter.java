@@ -17,4 +17,6 @@ public interface JobClassifyListPresenter {
 
     //view层也有这个函数，在view中点击事件有presenter处理
     void onItemClicked(View v, int position);
+
+
 }

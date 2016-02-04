@@ -20,4 +20,15 @@
 
     </style>
 
+
+
+    <!-- Base application theme. -->
+    <style name="SearchActivityTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <!-- customize the color palette -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="elevation">0dp</item>
+    </style>
+
 </resources>

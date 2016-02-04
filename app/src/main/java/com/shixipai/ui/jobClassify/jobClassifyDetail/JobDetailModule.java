@@ -1,7 +1,7 @@
 package com.shixipai.ui.jobClassify.jobClassifyDetail;
 
 import com.shixipai.AppModule;
-import com.shixipai.interactor.JobDetailInteractor;
+import com.shixipai.interactor.job.JobDetailInteractor;
 
 
 import javax.inject.Singleton;

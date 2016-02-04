@@ -29,6 +29,7 @@ import com.shixipai.ui.BaseActivity;
 import com.shixipai.ui.home.HomeFragment;
 import com.shixipai.ui.jobFeedback.JobFragment;
 import com.shixipai.ui.resume.ResumeFragment;
+import com.shixipai.ui.search.SearchActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -196,7 +197,7 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
 
         return true;
     }
@@ -204,38 +205,32 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-//        switch (item.getItemId()){
-//            case android.R.id.home:
-////                mDrawerLayout.openDrawer(GravityCompat.START);
-//                return true;
-//            case R.id.action_search:
-//                SearchActivity.actionStart(this);
-//                return true;
-//            case R.id.action_create_question:
-//                startActivity(new Intent(this, PublishActivity.class));
-//                break;
-//        }
+        switch (item.getItemId()){
+            case R.id.action_search:
+                SearchActivity.actionStart(this);
+                return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(mResult.isDrawerOpen()){
-            mResult.closeDrawer();
-            return true;
-        }
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
-//            if (System.currentTimeMillis() - exitTime > 2000) {
-//                Toast.makeText(this, getString(R.string.quit), Toast.LENGTH_SHORT).show();
-//                exitTime = System.currentTimeMillis();
-//            } else {
-//                finish();
-//                System.exit(0);
-//            }
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if(mResult.isDrawerOpen()){
+//            mResult.closeDrawer();
+//            return true;
+//        }
+//        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+////            if (System.currentTimeMillis() - exitTime > 2000) {
+////                Toast.makeText(this, getString(R.string.quit), Toast.LENGTH_SHORT).show();
+////                exitTime = System.currentTimeMillis();
+////            } else {
+////                finish();
+////                System.exit(0);
+////            }
+//            return true;
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
     @Override
     protected List<Object> getModules() {
