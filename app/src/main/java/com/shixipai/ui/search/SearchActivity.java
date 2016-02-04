@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.shixipai.R;
+import com.shixipai.api.ApiClient;
 import com.shixipai.bean.JobItem;
 import com.shixipai.support.ResourceHelper;
 import com.shixipai.ui.BaseActivity;
@@ -98,8 +99,14 @@ public class SearchActivity extends BaseActivity implements SearchView, OnItemCl
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 cityAdapter.setCheckItem(position);
                 dropDownMenu.setTabText(citys[position]);
-                cityCondition = String.valueOf(position+1);
+                cityCondition = String.valueOf(citys[position]);
                 dropDownMenu.closeMenu();
+
+                adapter.clear();
+                adapter.notifyDataSetChanged();
+
+                presenter.cancelRequest(getContext());
+                presenter.firstTimeLoadJobItems(cityCondition,jobCondition);
             }
         });
 
@@ -108,8 +115,14 @@ public class SearchActivity extends BaseActivity implements SearchView, OnItemCl
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 jobAdapter.setCheckItem(position);
                 dropDownMenu.setTabText(position == 0 ? headers[1] : jobs[position]);
-                jobCondition = String.valueOf(position+1);
+                jobCondition = String.valueOf(position);
                 dropDownMenu.closeMenu();
+
+                adapter.clear();
+                adapter.notifyDataSetChanged();
+
+                presenter.cancelRequest(getContext());
+                presenter.firstTimeLoadJobItems(cityCondition,jobCondition);
             }
         });
 
@@ -180,6 +193,11 @@ public class SearchActivity extends BaseActivity implements SearchView, OnItemCl
         Intent intent = new Intent(this, JobClassifyDetailActivity.class);
         intent.putExtra("id",id);
         startActivity(intent);
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
     }
 
     @Override

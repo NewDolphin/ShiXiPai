@@ -1,5 +1,6 @@
 package com.shixipai.api;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -40,6 +41,10 @@ public class ApiClient {
         return client;
     }
 
+    public static void cancelRequest(Context context){
+        client.cancelRequests(context,true);
+    }
+
     public static void userLogin(String username, String password, JsonHttpResponseHandler handler) {
         RequestParams params = new RequestParams();
         params.put("username", username);
@@ -78,12 +83,12 @@ public class ApiClient {
         client.get(BASE_URL+INTERVIEW_QUESTION_URL+String.valueOf(type),params,handler);
     }
 
-    public static void getSearchJobItems(int page, String cityCondition, String jobCondition, JsonHttpResponseHandler handler){
+    public static void getSearchJobItems(Context context, int page, String cityCondition, String jobCondition, JsonHttpResponseHandler handler){
         RequestParams params = new RequestParams();
         params.put("page", page);
         params.put("city",cityCondition);
-        params.put("industry",jobCondition);
+        params.put("industry", jobCondition);
 
-        client.post(BASE_URL+SEARCH_URL,params,handler);
+        client.post(context, BASE_URL + SEARCH_URL, params, handler);
     }
 }

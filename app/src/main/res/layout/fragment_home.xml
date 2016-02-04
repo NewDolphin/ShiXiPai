@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:scrollbars="vertical"
     android:background="@color/white"
+    android:fillViewport="true"
     tools:context="com.shixipai.ui.home.HomeFragment">
 
     <LinearLayout
@@ -12,6 +13,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/layout_home_tag"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="120dp">

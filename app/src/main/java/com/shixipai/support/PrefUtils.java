@@ -47,7 +47,7 @@ public class PrefUtils {
     }
 
     public static void setCityCondition(String city){
-        getDefaultSharedPreferences().edit().putString(PREF_CITY_CONDITION, city);
+        getDefaultSharedPreferences().edit().putString(PREF_CITY_CONDITION, city).apply();
     }
 
     public static String getCityCondition(){
@@ -55,7 +55,7 @@ public class PrefUtils {
     }
 
     public static void setJobCondition(String job){
-        getDefaultSharedPreferences().edit().putString(PREF_JOB_CONDITION,job);
+        getDefaultSharedPreferences().edit().putString(PREF_JOB_CONDITION,job).apply();
     }
 
     public static String getJobCondition(){

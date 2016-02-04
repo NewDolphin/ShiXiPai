@@ -1,4 +1,4 @@
-package com.shixipai.ui.search;
+package com.shixipai.ui.home;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -20,9 +20,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Created by xiepeng on 16/2/3.
+ * Created by xiepeng on 16/2/4.
  */
-public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int ITEM_VIEW_TYPE_ITEM = 0;
     private static final int ITEM_VIEW_TYPE_FOOTER = 1;
@@ -72,7 +72,7 @@ public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
-    public SearchAdapter(Context context, OnItemClickListener onItemClicked){
+    public HomeAdapter(Context context, OnItemClickListener onItemClicked){
         this.context = context;
         this.onItemClicked = onItemClicked;
     }
@@ -148,10 +148,6 @@ public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         this.useFooter = useFooter;
         notifyDataSetChanged();
     }
-
-    public void clear(){
-        dataSet.clear();
-    }
-
 }
+
 

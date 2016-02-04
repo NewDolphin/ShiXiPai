@@ -1,5 +1,7 @@
 package com.shixipai.ui.search;
 
+import android.content.Context;
+
 import com.shixipai.bean.JobItem;
 import com.shixipai.bean.interview.InterviewTopicItem;
 
@@ -21,4 +23,6 @@ public interface SearchView {
     void hideFooter();
 
     void startJobDetailActivity(int position);
+
+    Context getContext();
 }

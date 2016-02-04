@@ -1,5 +1,6 @@
 package com.shixipai.ui.search;
 
+import android.content.Context;
 import android.view.View;
 
 import com.shixipai.R;
@@ -18,7 +19,6 @@ public class SearchPresenterImpl implements SearchPresenter, OnGetJobItemsCallba
     private SearchInteractor interactor;
 
     private boolean isFirstTimeLoad = true;
-    private boolean isRefreshing = false;
     private boolean isLoadMore = false;
 
     private int page = 1;
@@ -30,10 +30,9 @@ public class SearchPresenterImpl implements SearchPresenter, OnGetJobItemsCallba
 
     @Override
     public void firstTimeLoadJobItems(String cityCondition,String jobCondition) {
-        isRefreshing = true;
         page = 1;
         searchView.showFooter();
-        getJobItems(cityCondition,jobCondition);
+        getJobItems(searchView.getContext(),cityCondition,jobCondition);
     }
 
     @Override
@@ -42,7 +41,7 @@ public class SearchPresenterImpl implements SearchPresenter, OnGetJobItemsCallba
         page += 1;
         isLoadMore = true;
         searchView.showFooter();
-        getJobItems(cityCondition, jobCondition);
+        getJobItems(searchView.getContext(),cityCondition, jobCondition);
     }
 
     @Override
@@ -52,6 +51,11 @@ public class SearchPresenterImpl implements SearchPresenter, OnGetJobItemsCallba
                 searchView.startJobDetailActivity(position);
                 break;
         }
+    }
+
+    @Override
+    public void cancelRequest(Context context) {
+        interactor.cancelRequest(context);
     }
 
     @Override
@@ -78,10 +82,9 @@ public class SearchPresenterImpl implements SearchPresenter, OnGetJobItemsCallba
         page -= 1;
         this.searchView.toastMessage(errorString);
         isLoadMore = false;
-        isRefreshing = false;
     }
 
-    private void getJobItems(String cityCondition,String jobCondition) {
-        this.interactor.getJobItems(page,cityCondition,jobCondition, this);
+    private void getJobItems(Context context,String cityCondition,String jobCondition) {
+        this.interactor.getJobItems(context,page,cityCondition,jobCondition, this);
     }
 }

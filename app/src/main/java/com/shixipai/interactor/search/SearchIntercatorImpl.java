@@ -1,5 +1,6 @@
 package com.shixipai.interactor.search;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -8,6 +9,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.shixipai.api.ApiClient;
 import com.shixipai.bean.JobItem;
 import com.shixipai.bean.JobResponse;
+import com.shixipai.support.PrefUtils;
 import com.shixipai.ui.common.job.OnGetJobItemsCallback;
 
 import org.json.JSONException;
@@ -23,11 +25,14 @@ import cz.msebera.android.httpclient.Header;
  */
 public class SearchIntercatorImpl implements SearchInteractor {
     @Override
-    public void getJobItems(int page, String cityCondition, String jobCondition, final OnGetJobItemsCallback onGetJobItemsCallback) {
-        ApiClient.getSearchJobItems(page, cityCondition, jobCondition, new JsonHttpResponseHandler() {
+    public void getJobItems(Context context, int page, final String cityCondition, final String jobCondition, final OnGetJobItemsCallback onGetJobItemsCallback) {
+        ApiClient.getSearchJobItems(context, page, cityCondition, jobCondition, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
+
+                PrefUtils.setCityCondition(cityCondition);
+                PrefUtils.setJobCondition(jobCondition);
 
                 Gson gson = new Gson();
                 try {
@@ -37,13 +42,16 @@ public class SearchIntercatorImpl implements SearchInteractor {
                     JobResponse jobResponse = new JobResponse();
                     jobResponse.rows = gson.fromJson(response.getString("data"), listType);
 
-                    Log.i("test", String.valueOf(jobResponse.rows.size()));
-
                     onGetJobItemsCallback.onSuccess(jobResponse);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         });
+    }
+
+    @Override
+    public void cancelRequest(Context context) {
+        ApiClient.cancelRequest(context);
     }
 }

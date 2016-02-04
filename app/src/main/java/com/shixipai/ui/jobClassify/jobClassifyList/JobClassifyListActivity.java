@@ -184,7 +184,6 @@ public class JobClassifyListActivity extends BaseActivity implements JobClassify
     protected void onDestroy() {
         super.onDestroy();
 //        ButterKnife.unbind(this);
-        Log.i("test","销毁了");
     }
 
     @Override

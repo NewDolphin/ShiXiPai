@@ -1,5 +1,6 @@
 package com.shixipai.ui.home;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.shixipai.R;
 import com.shixipai.bean.JobDetail;
 import com.shixipai.bean.JobItem;
+import com.shixipai.support.PrefUtils;
 import com.shixipai.ui.BaseFragment;
 import com.shixipai.ui.common.OnItemClickListener;
 import com.shixipai.ui.interview.InterviewActivity;
@@ -24,6 +26,7 @@ import com.shixipai.ui.jobClassify.jobClassifyDetail.JobClassifyDetailActivity;
 import com.shixipai.ui.jobClassify.jobClassifyList.JobClassifyListPresenter;
 import com.shixipai.ui.jobClassify.jobClassifyList.JobListAdapter;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -34,9 +37,12 @@ import butterknife.ButterKnife;
 /**
  * Created by xiepeng on 16/1/19.
  */
-public class HomeFragment extends Fragment implements HomeView,OnItemClickListener,View.OnClickListener {
+public class HomeFragment extends BaseFragment implements HomeView,OnItemClickListener,View.OnClickListener {
     @Inject
     HomeListPresenter presenter;
+
+    @Bind(R.id.layout_home_tag)
+    LinearLayout layout_tag;
 
     @Bind(R.id.layout_home_classify)
     LinearLayout layout_classify;
@@ -50,8 +56,13 @@ public class HomeFragment extends Fragment implements HomeView,OnItemClickListen
     @Bind(R.id.home_recycler_view)
     RecyclerView recyclerView;
 
-    private JobListAdapter adapter;
+    private HomeAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
+
+    @Override
+    public Context getContext() {
+        return getActivity();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,7 +74,7 @@ public class HomeFragment extends Fragment implements HomeView,OnItemClickListen
         layout_interview.setOnClickListener(this);
         layout_skill.setOnClickListener(this);
 
-        adapter = new JobListAdapter(getActivity(),this);
+        adapter = new HomeAdapter(getActivity(),this);
         linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
@@ -72,25 +83,33 @@ public class HomeFragment extends Fragment implements HomeView,OnItemClickListen
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 int lastPosition = linearLayoutManager.findLastCompletelyVisibleItemPosition();
+                int firstCompletePostion = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
+
+                if ((firstCompletePostion == 1)&&dy > 0) {
+                    layout_tag.setVisibility(View.GONE);
+                }
+                if ((firstCompletePostion == 2)&&dy < 0){
+                    layout_tag.setVisibility(View.VISIBLE);
+                }
                 if ((lastPosition == linearLayoutManager.getItemCount() - 1) && dy > 0) {
-                    presenter.loadMoreJobItems();
+                    presenter.loadMoreJobItems(PrefUtils.getCityCondition(),PrefUtils.getJobCondition());
                 }
             }
         });
 
-//        presenter.firstTimeLoadJobItems();
+        presenter.firstTimeLoadJobItems(PrefUtils.getCityCondition(),PrefUtils.getJobCondition());
 
         return view;
     }
 
-//    @Override
-//    protected List<Object> getModules() {
-//        return null;
-//    }
+    @Override
+    protected List<Object> getModules() {
+        return Arrays.<Object>asList(new HomeModule(this));
+    }
 
     @Override
     public void addListData(List<JobItem> items) {
-        adapter.updateData(items);
+        adapter.addData(items);
     }
 
     @Override
@@ -133,7 +152,6 @@ public class HomeFragment extends Fragment implements HomeView,OnItemClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.layout_home_classify:
-                Log.i("test","click");
                 Intent intent1 = new Intent(getActivity(), JobClassifyActivity.class);
                 startActivity(intent1);
                 break;
