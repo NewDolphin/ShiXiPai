@@ -54,7 +54,9 @@
         <activity android:name=".ui.search.SearchActivity"
                   android:label="搜索"
                   android:theme="@style/SearchActivityTheme"
-                  android:parentActivityName=".ui.main.MainActivity"></activity>
+                  android:parentActivityName=".ui.main.MainActivity"/>
+        <activity android:name=".ui.edit.EditActivity"
+            android:label="编辑简历"/>
     </application>
 
 </manifest>

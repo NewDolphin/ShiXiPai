@@ -1,11 +1,641 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:scrollbars="vertical"
+    tools:context="com.shixipai.ui.resume.ResumeFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="简历"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</LinearLayout>
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3996de"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="我的简历"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/triImage"
+            android:layout_below="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitStart"
+            android:src="@drawable/shape_triangle"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#000"
+            android:layout_below="@+id/title"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp"/>
+
+        <LinearLayout
+            android:id="@+id/part1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_below="@+id/title">
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="李明"
+                android:textSize="21sp"
+                android:textColor="@color/color_text_primary"/>
+
+            <TextView
+                android:id="@+id/tv_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1990-2-1"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textColor="@color/color_text_secondary"/>
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13920290056"
+                android:textSize="15sp"
+                android:textColor="@color/color_text_secondary"/>
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="liming@163.com"
+                android:textSize="15sp"
+                android:textColor="@color/color_text_secondary"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/part1"
+            android:layout_marginTop="15dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCC"
+                android:layout_toLeftOf="@+id/person_text1"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/person_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="教育背景"
+                android:textColor="#fff"
+                android:background="@drawable/shape_divider_background"
+                android:textSize="15sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCC"
+                android:layout_toRightOf="@+id/person_text1"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/part2"
+            android:layout_below="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/part2_edu1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp">
+
+                <TextView
+                    android:id="@+id/tv_edu_school"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="天津大学"
+                    android:textColor="@color/color_text_third"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/tv_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="本科"
+                    android:layout_toRightOf="@+id/tv_edu_school"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"/>
+
+                <LinearLayout
+                    android:id="@+id/tv_edu_school_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/tv_edu_school"
+                    android:layout_marginTop="5dp">
+                    <TextView
+                        android:id="@+id/tv_edu_school_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2010 --"
+                        android:textSize="15sp"/>
+                    <TextView
+                        android:id="@+id/tv_edu_school_end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 2014"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_edu_major"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_edu_school_time"
+                    android:layout_alignTop="@+id/tv_edu_school_time"
+                    android:layout_marginLeft="10dp"
+                    android:text="软件工程"
+                    android:textSize="15sp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/part2_edu2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp">
+
+                <TextView
+                    android:id="@+id/tv_edu2_school"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="天津大学"
+                    android:textColor="@color/color_text_third"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/tv_level2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="硕士"
+                    android:layout_toRightOf="@+id/tv_edu2_school"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"/>
+
+                <LinearLayout
+                    android:id="@+id/tv_edu2_school_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/tv_edu2_school"
+                    android:layout_marginTop="5dp">
+                    <TextView
+                        android:id="@+id/tv_edu2_school_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2014 --"
+                        android:textSize="15sp"/>
+                    <TextView
+                        android:id="@+id/tv_edu2_school_end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 2016"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_edu2_major"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_edu2_school_time"
+                    android:layout_alignTop="@+id/tv_edu2_school_time"
+                    android:layout_marginLeft="10dp"
+                    android:text="软件工程"
+                    android:textSize="15sp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/part2_edu3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_edu3_school"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="天津大学"
+                    android:textColor="@color/color_text_third"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/tv_level3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="博士"
+                    android:layout_toRightOf="@+id/tv_edu3_school"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"/>
+
+                <LinearLayout
+                    android:id="@+id/tv_edu3_school_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/tv_edu3_school"
+                    android:layout_marginTop="5dp">
+                    <TextView
+                        android:id="@+id/tv_edu3_school_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2016 --"
+                        android:textSize="15sp"/>
+                    <TextView
+                        android:id="@+id/tv_edu3_school_end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 2017"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_edu3_major"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_edu3_school_time"
+                    android:layout_alignTop="@+id/tv_edu3_school_time"
+                    android:layout_marginLeft="10dp"
+                    android:text="软件工程"
+                    android:textSize="15sp"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/part2"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCC"
+                android:layout_toLeftOf="@+id/person_text2"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"></LinearLayout>
+
+            <TextView
+                android:id="@+id/person_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="项目比赛"
+                android:textColor="#fff"
+                android:background="@drawable/shape_divider_background"
+                android:textSize="15sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCC"
+                android:layout_toRightOf="@+id/person_text2"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"></LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/part3"
+            android:layout_below="@+id/divider2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp">
+
+            <RelativeLayout
+                android:id="@+id/part3_project1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_project1_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="天津大学天外天新闻工作室"
+                    android:textColor="@color/color_text_third"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_project1_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/tv_project1_title"
+                    android:layout_marginTop="5dp">
+                    <TextView
+                        android:id="@+id/tv_project1_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2010 --"
+                        android:textSize="15sp"
+                        android:textColor="@color/color_text_third"/>
+                    <TextView
+                        android:id="@+id/tv_project1_end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 2014"
+                        android:textSize="15sp"
+                        android:textColor="@color/color_text_third"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_project1_content_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="参与项目:"
+                    android:layout_below="@+id/layout_project1_time"
+                    android:textSize="12dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/tv_project1_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/tv_project1_content_title"
+                    android:text="天津大学“天外天新闻中心成立15周年大数据回顾”页面设计"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/part3_project2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:id="@+id/tv_project2_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="天津大学天外天新闻工作室"
+                    android:textColor="@color/color_text_third"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_project2_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/tv_project2_title"
+                    android:layout_marginTop="5dp">
+                    <TextView
+                        android:id="@+id/tv_project2_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2010 --"
+                        android:textSize="15sp"
+                        android:textColor="@color/color_text_third"/>
+                    <TextView
+                        android:id="@+id/tv_project2_end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 2014"
+                        android:textSize="15sp"
+                        android:textColor="@color/color_text_third"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_project2_content_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="参与项目:"
+                    android:layout_below="@+id/layout_project2_time"
+                    android:textSize="12dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/tv_project2_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/tv_project2_content_title"
+                    android:text="天津大学“天外天新闻中心成立15周年大数据回顾”页面设计"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/part3_project3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:id="@+id/tv_project3_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="天津大学天外天新闻工作室"
+                    android:textColor="@color/color_text_third"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_project3_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/tv_project3_title"
+                    android:layout_marginTop="5dp">
+                    <TextView
+                        android:id="@+id/tv_project3_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2010 --"
+                        android:textSize="15sp"
+                        android:textColor="@color/color_text_third"/>
+                    <TextView
+                        android:id="@+id/tv_project3_end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 2014"
+                        android:textSize="15sp"
+                        android:textColor="@color/color_text_third"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_project3_content_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="参与项目:"
+                    android:layout_below="@+id/layout_project3_time"
+                    android:textSize="12dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/tv_project3_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/tv_project3_content_title"
+                    android:text="天津大学“天外天新闻中心成立15周年大数据回顾”页面设计"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/part3"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCC"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toLeftOf="@+id/text5"
+                android:layout_marginRight="10dp"></LinearLayout>
+
+            <TextView
+                android:id="@+id/text5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="实习意愿"
+                android:textColor="#fff"
+                android:background="@drawable/shape_divider_background"
+                android:textSize="15sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CCC"
+                android:layout_toRightOf="@+id/text5"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"></LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/part4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_want_scope"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="互联网"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_want_job"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Android开发工程师"
+                android:layout_marginTop="5dp"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_want_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="北京"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_want_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100/天"
+                android:textSize="15sp"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="附加信息:"
+                android:layout_marginTop="10sp" />
+
+            <TextView
+                android:id="@+id/tv_want_extra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="15sp"
+                android:text="希望尽量少加班，六日可以休息"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/part4"/>
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary"> #00BBFF</color>
-    <color name="color_accent_dark"> #33CCFF</color>
+    <color name="color_primary">#3996de</color>
+    <color name="color_accent_dark">#33CCFF</color>
     <color name="color_light_grey">#AAAAAA</color>
     <color name="white">#ffffff</color>
     <color name="color_divider_white">#eeeeee</color>
     <color name="color_text_primary">#212121</color>
     <color name="color_text_secondary">#727272</color>
+    <color name="color_text_third">#282727</color>
 
 </resources>
