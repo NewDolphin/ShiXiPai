@@ -25,6 +25,7 @@ import com.shixipai.ui.jobClassify.JobClassifyActivity;
 import com.shixipai.ui.jobClassify.jobClassifyDetail.JobClassifyDetailActivity;
 import com.shixipai.ui.jobClassify.jobClassifyList.JobClassifyListPresenter;
 import com.shixipai.ui.jobClassify.jobClassifyList.JobListAdapter;
+import com.shixipai.ui.strategy.list.StrategyListActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -157,6 +158,9 @@ public class HomeFragment extends BaseFragment implements HomeView,OnItemClickLi
                 break;
             case R.id.layout_home_interview:
                 InterviewActivity.actionStart(getActivity());
+                break;
+            case R.id.layout_home_skill:
+                StrategyListActivity.actionStart(getActivity());
                 break;
         }
     }

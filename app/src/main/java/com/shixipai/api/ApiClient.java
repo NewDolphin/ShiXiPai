@@ -32,6 +32,8 @@ public class ApiClient {
 
     private static final String SEARCH_URL = "intern-datas-tuijianRecommali-li";
 
+    private static final String STRATEGY_URL = "gl-tactics-gluebob";
+
     static {
         client.setTimeout(DEFAULT_TIMEOUT);
         client.setCookieStore(sCookieStore);
@@ -90,5 +92,12 @@ public class ApiClient {
         params.put("industry", jobCondition);
 
         client.post(context, BASE_URL + SEARCH_URL, params, handler);
+    }
+
+    public static void getStrategyItem(int page,JsonHttpResponseHandler handler){
+        RequestParams params = new RequestParams();
+        params.put("page", page);
+
+        client.get(BASE_URL + STRATEGY_URL, params, handler);
     }
 }

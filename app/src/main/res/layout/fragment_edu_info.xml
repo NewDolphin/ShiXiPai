@@ -16,13 +16,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/step" />
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_edu_info" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="30dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -30,8 +31,7 @@
                 android:text="教育经历一"
                 android:textColor="@color/color_text_primary"
                 android:textSize="18sp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginLeft="15dp" />
 
             <LinearLayout
                 android:id="@+id/layout_edu1_start_time"

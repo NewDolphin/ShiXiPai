@@ -57,6 +57,10 @@
                   android:parentActivityName=".ui.main.MainActivity"/>
         <activity android:name=".ui.edit.EditActivity"
             android:label="编辑简历"/>
+        <activity android:name=".ui.strategy.list.StrategyListActivity"
+            android:label="实习攻略"/>
+        <activity android:name=".ui.strategy.detail.StrategyDetailActivity"
+            android:label="攻略详情"/>
     </application>
 
 </manifest>

@@ -12,6 +12,8 @@ import com.shixipai.interactor.interview.InterviewTopicInteractor;
 import com.shixipai.interactor.interview.InterviewTopicInteractorImpl;
 import com.shixipai.interactor.search.SearchInteractor;
 import com.shixipai.interactor.search.SearchIntercatorImpl;
+import com.shixipai.interactor.strategy.StrategyInteractor;
+import com.shixipai.interactor.strategy.StrategyInteractorImpl;
 
 import javax.inject.Singleton;
 
@@ -60,6 +62,12 @@ public class InteractorsModule {
     @Singleton
     public SearchInteractor provideSearchInteractor(){
         return new SearchIntercatorImpl();
+    }
+
+    @Provides
+    @Singleton
+    public StrategyInteractor provideStrategyInteractor(){
+        return new StrategyInteractorImpl();
     }
 
 }
