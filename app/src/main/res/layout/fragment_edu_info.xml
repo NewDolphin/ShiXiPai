@@ -35,42 +35,6 @@
                 android:textSize="18sp" />
 
             <LinearLayout
-                android:id="@+id/layout_edu1_start_time"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="入学时间"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_edu1_start_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="10dp"
-                    android:drawableRight="@drawable/ic_action_right_arrow"
-                    android:text="2013-10-1"
-                    android:textColor="#000"
-                    android:textSize="16sp"
-                    android:visibility="visible" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#CCC" />
-
-            <LinearLayout
                 android:id="@+id/layout_edu1_end_time"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -228,42 +192,6 @@
                 android:textSize="18sp" />
 
             <LinearLayout
-                android:id="@+id/layout_edu2_start_time"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="入学时间"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_edu2_start_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="10dp"
-                    android:drawableRight="@drawable/ic_action_right_arrow"
-                    android:text="2013-10-1"
-                    android:textColor="#000"
-                    android:textSize="16sp"
-                    android:visibility="visible" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#CCC" />
-
-            <LinearLayout
                 android:id="@+id/layout_edu2_end_time"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -419,42 +347,6 @@
                 android:text="教育经历三"
                 android:textColor="@color/color_text_primary"
                 android:textSize="18sp" />
-
-            <LinearLayout
-                android:id="@+id/layout_edu3_start_time"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="入学时间"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_edu3_start_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="10dp"
-                    android:drawableRight="@drawable/ic_action_right_arrow"
-                    android:text="2013-10-1"
-                    android:textColor="#000"
-                    android:textSize="16sp"
-                    android:visibility="visible" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#CCC" />
 
             <LinearLayout
                 android:id="@+id/layout_edu3_end_time"

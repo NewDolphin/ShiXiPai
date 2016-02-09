@@ -1,9 +1,11 @@
 package com.shixipai.bean.edit;
 
+import java.io.Serializable;
+
 /**
  * Created by xiepeng on 16/2/5.
  */
-public class ProjectInfo {
+public class ProjectInfo implements Serializable{
     private String title;
     private String start_time;
     private String end_time;

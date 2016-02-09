@@ -1,9 +1,11 @@
 package com.shixipai.bean.edit;
 
+import java.io.Serializable;
+
 /**
  * Created by xiepeng on 16/2/5.
  */
-public class WantInfo {
+public class WantInfo implements Serializable{
     private String scope;
     private String job;
     private String city;

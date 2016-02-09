@@ -5,18 +5,95 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.shixipai.R;
+import com.shixipai.bean.edit.ProjectInfo;
+import com.shixipai.bean.edit.WantInfo;
+import com.shixipai.ui.edit.EditActivity;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * Created by xiepeng on 16/2/5.
  */
-public class WantInfoFragment extends Fragment {
+public class WantInfoFragment extends Fragment implements View.OnClickListener{
+    public final static String PARAM_TYPE = "want_info";
+
+    private WantInfo wantInfo;
+
+    private EditActivity editActivity;
+
+    @Bind(R.id.et_scope)
+    EditText et_scope;
+
+    @Bind(R.id.et_job)
+    EditText et_job;
+
+    @Bind(R.id.et_city)
+    EditText et_city;
+
+    @Bind(R.id.et_money)
+    EditText et_money;
+
+    @Bind(R.id.et_extra)
+    EditText et_extra;
+
+    @Bind(R.id.bt_save)
+    Button bt_save;
+
+    public static WantInfoFragment getInstance(WantInfo wantInfo){
+        WantInfoFragment wantInfoFragment = new WantInfoFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(PARAM_TYPE, wantInfo);
+        wantInfoFragment.setArguments(bundle);
+        return wantInfoFragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        wantInfo = (WantInfo)getArguments().getSerializable(PARAM_TYPE);
+        EditActivity editActivity = (EditActivity)getActivity();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_want_info,container,false);
+        ButterKnife.bind(this, rootView);
+
+        bindInfo();
+
+        bindEvent();
 
         return rootView;
+    }
+
+    private void bindInfo() {
+        et_scope.setText(wantInfo.getScope());
+        et_job.setText(wantInfo.getJob());
+        et_city.setText(wantInfo.getCity());
+        et_money.setText(wantInfo.getMoney());
+        et_extra.setText(wantInfo.getContent());
+    }
+
+    private void bindEvent() {
+        bt_save.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.bt_save:
+                editActivity.resumeInfo.getWantInfo().setScope(et_scope.getText().toString());
+                editActivity.resumeInfo.getWantInfo().setJob(et_job.getText().toString());
+                editActivity.resumeInfo.getWantInfo().setCity(et_city.getText().toString());
+                editActivity.resumeInfo.getWantInfo().setMoney(et_money.getText().toString());
+                editActivity.resumeInfo.getWantInfo().setContent(et_extra.getText().toString());
+                break;
+        }
     }
 }

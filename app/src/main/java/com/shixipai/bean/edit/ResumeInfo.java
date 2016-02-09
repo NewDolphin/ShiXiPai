@@ -1,11 +1,12 @@
 package com.shixipai.bean.edit;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by xiepeng on 16/2/8.
  */
-public class ResumeInfo {
+public class ResumeInfo implements Serializable{
     private BaseInfo baseInfo;
     private ArrayList<EduInfo> eduInfos;
     private ArrayList<ProjectInfo> projectInfos;
