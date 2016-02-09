@@ -20,18 +20,19 @@
             android:src="@drawable/ic_project_info" />
 
         <LinearLayout
+            android:id="@+id/layout_project1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
                 android:text="项目经历一"
                 android:textColor="@color/color_text_primary"
-                android:textSize="18sp"
-                android:layout_marginLeft="15dp" />
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:id="@+id/layout_project1_start_time"
@@ -67,7 +68,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="#CCC"/>
+                android:background="#CCC" />
 
             <LinearLayout
                 android:id="@+id/layout_edu1_end_time"
@@ -85,7 +86,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/tv_project1_endtime"
+                    android:id="@+id/tv_project1_end_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -98,98 +99,91 @@
                     android:visibility="visible" />
             </LinearLayout>
 
-        </LinearLayout>
 
-
-
-
-        <!--学校-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="名        称"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/et_project1_title"
+            <!--学校-->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="80dp"
-                android:background="@null"
-                android:text="天外天新闻工作室"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:layout_height="40dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#CCC"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="名        称"
+                    android:textSize="16sp" />
 
-        <!--学历-->
+                <EditText
+                    android:id="@+id/et_project1_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="80dp"
+                    android:background="@null"
+                    android:text="天外天新闻工作室"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="描        述"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/et_project1_content"
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="80dp"
-                android:background="@null"
-                android:text="本科"
-                android:textSize="16sp" />
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#CCC" />
+
+            <!--学历-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="描        述"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_project1_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="80dp"
+                    android:background="@null"
+                    android:text="本科"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#CCC" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#CCC"/>
-
-
-
-
-
-
 
 
         <LinearLayout
+            android:id="@+id/layout_project2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
                 android:text="项目经历二"
                 android:textColor="@color/color_text_primary"
-                android:textSize="18sp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="30dp"/>
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:id="@+id/layout_project2_start_time"
@@ -225,7 +219,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="#CCC"/>
+                android:background="#CCC" />
 
             <LinearLayout
                 android:id="@+id/layout_edu2_end_time"
@@ -243,7 +237,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/tv_project2_endtime"
+                    android:id="@+id/tv_project2_end_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -256,97 +250,91 @@
                     android:visibility="visible" />
             </LinearLayout>
 
-        </LinearLayout>
 
-
-
-
-        <!--学校-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="名        称"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/et_project2_title"
+            <!--学校-->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="80dp"
-                android:background="@null"
-                android:text="天外天新闻工作室"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:layout_height="40dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#CCC"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="名        称"
+                    android:textSize="16sp" />
 
-        <!--学历-->
+                <EditText
+                    android:id="@+id/et_project2_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="80dp"
+                    android:background="@null"
+                    android:text="天外天新闻工作室"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="描        述"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/et_project2_content"
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="80dp"
-                android:background="@null"
-                android:text="本科"
-                android:textSize="16sp" />
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#CCC" />
+
+            <!--学历-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="描        述"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_project2_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="80dp"
+                    android:background="@null"
+                    android:text="本科"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#CCC" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#CCC"/>
-
-
-
-
-
 
 
         <LinearLayout
+            android:id="@+id/layout_project3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
                 android:text="项目经历三"
                 android:textColor="@color/color_text_primary"
-                android:textSize="18sp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="30dp"/>
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:id="@+id/layout_project3_start_time"
@@ -382,7 +370,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="#CCC"/>
+                android:background="#CCC" />
 
             <LinearLayout
                 android:id="@+id/layout_edu3_end_time"
@@ -400,7 +388,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/tv_project3_endtime"
+                    android:id="@+id/tv_project3_end_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -413,80 +401,78 @@
                     android:visibility="visible" />
             </LinearLayout>
 
-        </LinearLayout>
 
-
-
-
-        <!--学校-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="名        称"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/et_project3_title"
+            <!--学校-->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="80dp"
-                android:background="@null"
-                android:text="天外天新闻工作室"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:layout_height="40dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#CCC"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="名        称"
+                    android:textSize="16sp" />
 
-        <!--学历-->
+                <EditText
+                    android:id="@+id/et_project3_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="80dp"
+                    android:background="@null"
+                    android:text="天外天新闻工作室"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="描        述"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/et_project3_content"
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="80dp"
-                android:background="@null"
-                android:text="本科"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#CCC" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#CCC"/>
+            <!--学历-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="描        述"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_project3_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="80dp"
+                    android:background="@null"
+                    android:text="本科"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#CCC" />
+
+        </LinearLayout>
 
         <Button
-            android:id="@+id/add_button"
+            android:id="@+id/bt_add_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -497,7 +483,7 @@
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/next_button"
+            android:id="@+id/bt_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

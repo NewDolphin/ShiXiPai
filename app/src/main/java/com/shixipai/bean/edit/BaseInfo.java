@@ -1,22 +1,29 @@
 package com.shixipai.bean.edit;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
 /**
  * Created by xiepeng on 16/2/5.
  */
-public class BaseInfo {
+public class BaseInfo implements Serializable {
     private String name;
     private String birthday;
     private String telephone;
     private String email;
+    private String sex;
 
-    public BaseInfo(String name, String school, String birthday, String telephone, String email) {
+    public BaseInfo() {
+    }
+
+    public BaseInfo(String name, String birthday, String telephone, String email, String sex) {
         this.name = name;
         this.birthday = birthday;
         this.telephone = telephone;
         this.email = email;
-    }
-
-    public BaseInfo() {
+        this.sex = sex;
     }
 
     public String getName() {
@@ -49,5 +56,13 @@ public class BaseInfo {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 }

@@ -1,9 +1,11 @@
 package com.shixipai.bean.edit;
 
+import java.io.Serializable;
+
 /**
  * Created by xiepeng on 16/2/5.
  */
-public class EduInfo {
+public class EduInfo implements Serializable{
     private String school;
     private String level;
     private String start_time;

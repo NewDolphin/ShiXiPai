@@ -64,5 +64,9 @@
     <string name="job_place13">济南</string>
     <string name="job_place14">成都</string>
 
+    <!-- Photo select dialog strings -->
+    <string name="title_dialog_photo_select">选择图片</string>
+    <string name="dialog_take_photo">拍照</string>
+    <string name="dialog_local_photo">相册</string>
 
 </resources>

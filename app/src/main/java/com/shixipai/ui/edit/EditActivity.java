@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.shixipai.R;
+import com.shixipai.bean.edit.ResumeInfo;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,7 +25,9 @@ public class EditActivity extends AppCompatActivity{
     Toolbar toolbar;
 
     @Bind(R.id.viewpager_edit)
-    ViewPager viewPager;
+    public ViewPager viewPager;
+
+    public ResumeInfo resumeInfo;
 
     public static void actionStart(Context context) {
         Intent intent = new Intent(context, EditActivity.class);
@@ -44,7 +47,9 @@ public class EditActivity extends AppCompatActivity{
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
-        FragmentPagerAdapter fragmentPagerAdapter = new EditAdapter(getSupportFragmentManager());
+        resumeInfo = new ResumeInfo();
+
+        FragmentPagerAdapter fragmentPagerAdapter = new EditAdapter(getSupportFragmentManager(),resumeInfo);
         viewPager.setAdapter(fragmentPagerAdapter);
     }
 
