@@ -16,20 +16,14 @@ import java.util.ArrayList;
  */
 public class EditAdapter extends FragmentPagerAdapter {
     ArrayList<Fragment> mFragments = new ArrayList<Fragment>();
-    Fragment mTab01 = new BaseInfoFragment();
-    Fragment mTab02 = new EduInfoFrragment();
-    Fragment mTab03 = new ProjectInfoFragment();
-    Fragment mTab04 = new WantInfoFragment();
 
     public EditAdapter(android.support.v4.app.FragmentManager fm,ResumeInfo resumeInfo){
         super(fm);
 
         mFragments.add(BaseInfoFragment.getInstance(resumeInfo.getBaseInfo()));
-
-        mFragments.add(mTab01);
-        mFragments.add(mTab02);
-        mFragments.add(mTab03);
-        mFragments.add(mTab04);
+        mFragments.add(EduInfoFrragment.getInstance(resumeInfo.getEduInfos()));
+        mFragments.add(ProjectInfoFragment.getInstance(resumeInfo.getProjectInfos()));
+        mFragments.add(WantInfoFragment.getInstance(resumeInfo.getWantInfo()));
     }
 
     @Override

@@ -14,8 +14,10 @@ public class ResumeInfo implements Serializable{
 
 
     public ResumeInfo() {
+        baseInfo = new BaseInfo();
         eduInfos = new ArrayList<EduInfo>();
         projectInfos = new ArrayList<ProjectInfo>();
+        wantInfo = new WantInfo();
     }
 
     public BaseInfo getBaseInfo() {
