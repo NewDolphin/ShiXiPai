@@ -7,48 +7,46 @@ import java.util.ArrayList;
  * Created by xiepeng on 16/2/8.
  */
 public class ResumeInfo implements Serializable{
-    private BaseInfo baseInfo;
-    private ArrayList<EduInfo> eduInfos;
-    private ArrayList<ProjectInfo> projectInfos;
-    private WantInfo wantInfo;
+    public String name;
+    public String sex;
+    public String birthday;
+    public String mail;
+    public String phone;
 
+    public String school_1;
+    public String professional_1;
+    public String grade_1;
+    public String graduated_time_1;
+    public String school_2;
+    public String professional_2;
+    public String grade_2;
+    public String graduated_time_2;
+    public String school_3;
+    public String professional_3;
+    public String grade_3;
+    public String graduated_time_3;
 
-    public ResumeInfo() {
-        baseInfo = new BaseInfo();
-        eduInfos = new ArrayList<EduInfo>();
-        projectInfos = new ArrayList<ProjectInfo>();
-        wantInfo = new WantInfo();
-    }
+    public String want_scope;
+    public String want_job;
+    public String want_area;
+    public String want_salary;
+    public String add_info;
 
-    public BaseInfo getBaseInfo() {
-        return baseInfo;
-    }
+    public String project_title_1;
+    public String project_start_1;
+    public String project_end_1;
+    public String project_job_1;
+    public String project_info_1;
 
-    public void setBaseInfo(BaseInfo baseInfo) {
-        this.baseInfo = baseInfo;
-    }
+    public String project_title_2;
+    public String project_start_2;
+    public String project_end_2;
+    public String project_job_2;
+    public String project_info_2;
+    public String project_title_3;
+    public String project_start_3;
+    public String project_end_3;
+    public String project_job_3;
+    public String project_info_3;
 
-    public ArrayList<EduInfo> getEduInfos() {
-        return eduInfos;
-    }
-
-    public void setEduInfos(ArrayList<EduInfo> eduInfos) {
-        this.eduInfos = eduInfos;
-    }
-
-    public ArrayList<ProjectInfo> getProjectInfos() {
-        return projectInfos;
-    }
-
-    public void setProjectInfos(ArrayList<ProjectInfo> projectInfos) {
-        this.projectInfos = projectInfos;
-    }
-
-    public WantInfo getWantInfo() {
-        return wantInfo;
-    }
-
-    public void setWantInfo(WantInfo wantInfo) {
-        this.wantInfo = wantInfo;
-    }
 }

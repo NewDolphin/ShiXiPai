@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.shixipai.R;
 import com.shixipai.bean.edit.BaseInfo;
+import com.shixipai.bean.edit.ResumeInfo;
 import com.shixipai.ui.BaseFragment;
 import com.shixipai.ui.common.edit.SelectPhotoDialogFragment;
 import com.shixipai.ui.edit.EditActivity;
@@ -33,7 +34,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class BaseInfoFragment extends Fragment implements View.OnClickListener, DatePickerDialog.OnDateSetListener {
     public final static String PARAM_TYPE = "base_info";
 
-    private BaseInfo baseInfo;
+    private ResumeInfo resumeInfo;
 
     private EditActivity editActivity;
 
@@ -71,11 +72,11 @@ public class BaseInfoFragment extends Fragment implements View.OnClickListener, 
     Button bt_next;
 
 
-    public static BaseInfoFragment getInstance(BaseInfo baseInfo){
+    public static BaseInfoFragment getInstance(ResumeInfo resumeInfo){
         BaseInfoFragment baseInfoFragment = new BaseInfoFragment();
 
         Bundle bundle = new Bundle();
-        bundle.putSerializable(PARAM_TYPE, baseInfo);
+        bundle.putSerializable(PARAM_TYPE, resumeInfo);
         baseInfoFragment.setArguments(bundle);
         return baseInfoFragment;
     }
@@ -83,7 +84,7 @@ public class BaseInfoFragment extends Fragment implements View.OnClickListener, 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        baseInfo = (BaseInfo)getArguments().getSerializable(PARAM_TYPE);
+        resumeInfo = (ResumeInfo)getArguments().getSerializable(PARAM_TYPE);
         EditActivity editActivity = (EditActivity)getActivity();
     }
 
@@ -100,15 +101,15 @@ public class BaseInfoFragment extends Fragment implements View.OnClickListener, 
     }
 
     private void bindInfo() {
-        et_name.setText(baseInfo.getName());
-        if (baseInfo.getSex().equals("男")){
+        et_name.setText(resumeInfo.name);
+        if (resumeInfo.sex.equals("男")){
             radio_bt_male.setChecked(true);
-        }else if (baseInfo.getSex().equals("女")){
+        }else if (resumeInfo.sex.equals("女")){
             radio_bt_female.setChecked(true);
         }
-        tv_birthday.setText(baseInfo.getBirthday());
-        et_telphone.setText(baseInfo.getTelephone());
-        et_email.setText(baseInfo.getEmail());
+        tv_birthday.setText(resumeInfo.birthday);
+        et_telphone.setText(resumeInfo.phone);
+        et_email.setText(resumeInfo.mail);
     }
 
     private void bindEvent() {
@@ -116,9 +117,9 @@ public class BaseInfoFragment extends Fragment implements View.OnClickListener, 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == radio_bt_male.getId()) {
-                    editActivity.resumeInfo.getBaseInfo().setSex("男");
+                    editActivity.resumeInfo.sex = "男";
                 } else if (checkedId == radio_bt_female.getId()) {
-                    editActivity.resumeInfo.getBaseInfo().setSex("女");
+                    editActivity.resumeInfo.sex = "女";
                 }
             }
         });
@@ -145,10 +146,10 @@ public class BaseInfoFragment extends Fragment implements View.OnClickListener, 
 //                new SelectPhotoDialogFragment().show(editActivity);
 //                break;
             case R.id.bt_next:
-                editActivity.resumeInfo.getBaseInfo().setName(et_name.getText().toString());
-                editActivity.resumeInfo.getBaseInfo().setBirthday(tv_birthday.getText().toString());
-                editActivity.resumeInfo.getBaseInfo().setTelephone(et_telphone.getText().toString());
-                editActivity.resumeInfo.getBaseInfo().setEmail(et_email.getText().toString());
+                editActivity.resumeInfo.name = et_name.getText().toString();
+                editActivity.resumeInfo.birthday = tv_birthday.getText().toString();
+                editActivity.resumeInfo.phone = et_telphone.getText().toString();
+                editActivity.resumeInfo.mail = et_email.getText().toString();
 
                 editActivity.viewPager.setCurrentItem(1);
                 break;

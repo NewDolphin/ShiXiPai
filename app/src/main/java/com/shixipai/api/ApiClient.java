@@ -34,6 +34,8 @@ public class ApiClient {
 
     private static final String STRATEGY_URL = "gl-tactics-gluebob";
 
+    private static final String RESUME_INFO_URL = "zx-sh-jvie-kk-opwye-shh-j-jz";
+
     static {
         client.setTimeout(DEFAULT_TIMEOUT);
         client.setCookieStore(sCookieStore);
@@ -99,5 +101,13 @@ public class ApiClient {
         params.put("page", page);
 
         client.get(BASE_URL + STRATEGY_URL, params, handler);
+    }
+
+    public static void getResumeInfo(JsonHttpResponseHandler handler){
+        RequestParams params = new RequestParams();
+        params.put("username",PrefUtils.getPrefUsername());
+        params.put("password",PrefUtils.getPrefPassword());
+
+        client.post(BASE_URL + RESUME_INFO_URL, params, handler);
     }
 }

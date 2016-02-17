@@ -15,6 +15,7 @@ import com.shixipai.R;
 import com.shixipai.bean.edit.BaseInfo;
 import com.shixipai.bean.edit.EduInfo;
 import com.shixipai.bean.edit.ProjectInfo;
+import com.shixipai.bean.edit.ResumeInfo;
 import com.shixipai.ui.edit.EditActivity;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
@@ -30,7 +31,7 @@ import butterknife.ButterKnife;
 public class ProjectInfoFragment extends Fragment implements View.OnClickListener, DatePickerDialog.OnDateSetListener {
     public final static String PARAM_TYPE = "project_info";
 
-    private ArrayList<ProjectInfo> projectInfos = new ArrayList<ProjectInfo>();
+    private ResumeInfo resumeInfo;
 
     private EditActivity editActivity;
 
@@ -111,11 +112,11 @@ public class ProjectInfoFragment extends Fragment implements View.OnClickListene
     //用来区分第几个项目信息的毕业时间
     private int timeTag = 1;
 
-    public static ProjectInfoFragment getInstance(ArrayList<ProjectInfo> projectInfos){
+    public static ProjectInfoFragment getInstance(ResumeInfo resumeInfo){
         ProjectInfoFragment projectInfoFragment = new ProjectInfoFragment();
 
         Bundle bundle = new Bundle();
-        bundle.putSerializable(PARAM_TYPE, projectInfos);
+        bundle.putSerializable(PARAM_TYPE, resumeInfo);
         projectInfoFragment.setArguments(bundle);
         return projectInfoFragment;
     }
@@ -123,7 +124,7 @@ public class ProjectInfoFragment extends Fragment implements View.OnClickListene
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        projectInfos = (ArrayList<ProjectInfo>)getArguments().getSerializable(PARAM_TYPE);
+        resumeInfo = (ResumeInfo)getArguments().getSerializable(PARAM_TYPE);
         EditActivity editActivity = (EditActivity)getActivity();
     }
 
@@ -140,51 +141,28 @@ public class ProjectInfoFragment extends Fragment implements View.OnClickListene
     }
 
     private void bindInfo() {
-        switch(projectInfos.size()) {
-            case 0:
-                proCount = 1;
-                break;
-            case 1:
-                proCount = 1;
-                tv_project1_start_time.setText(projectInfos.get(0).getStart_time());
-                tv_project1_end_time.setText(projectInfos.get(0).getEnd_time());
-                et_project1_title.setText(projectInfos.get(0).getTitle());
-                et_project1_content.setText(projectInfos.get(0).getContent());
-                break;
-            case 2:
-                proCount = 2;
-                tv_project1_start_time.setText(projectInfos.get(0).getStart_time());
-                tv_project1_end_time.setText(projectInfos.get(0).getEnd_time());
-                et_project1_title.setText(projectInfos.get(0).getTitle());
-                et_project1_content.setText(projectInfos.get(0).getContent());
-
-                tv_project2_start_time.setText(projectInfos.get(1).getStart_time());
-                tv_project2_end_time.setText(projectInfos.get(1).getEnd_time());
-                et_project2_title.setText(projectInfos.get(1).getTitle());
-                et_project2_content.setText(projectInfos.get(1).getContent());
-
-                layout_project2.setVisibility(View.VISIBLE);
-                break;
-            case 3:
-                proCount = 3;
-                tv_project1_start_time.setText(projectInfos.get(0).getStart_time());
-                tv_project1_end_time.setText(projectInfos.get(0).getEnd_time());
-                et_project1_title.setText(projectInfos.get(0).getTitle());
-                et_project1_content.setText(projectInfos.get(0).getContent());
-
-                tv_project2_start_time.setText(projectInfos.get(1).getStart_time());
-                tv_project2_end_time.setText(projectInfos.get(1).getEnd_time());
-                et_project2_title.setText(projectInfos.get(1).getTitle());
-                et_project2_content.setText(projectInfos.get(1).getContent());
-
-                tv_project3_start_time.setText(projectInfos.get(2).getStart_time());
-                tv_project3_end_time.setText(projectInfos.get(2).getEnd_time());
-                et_project3_title.setText(projectInfos.get(2).getTitle());
-                et_project3_content.setText(projectInfos.get(2).getContent());
-
-                layout_project3.setVisibility(View.VISIBLE);
-                layout_project2.setVisibility(View.VISIBLE);
-                break;
+        if (resumeInfo.project_title_1 == null){
+            proCount = 1;
+        }else {
+            proCount = 1;
+            tv_project1_start_time.setText(resumeInfo.project_start_1);
+            tv_project1_end_time.setText(resumeInfo.project_end_1);
+            et_project1_title.setText(resumeInfo.project_title_1);
+            et_project1_content.setText(resumeInfo.project_info_1);
+        }
+        if (resumeInfo.project_title_2 != null){
+            proCount = 2;
+            tv_project2_start_time.setText(resumeInfo.project_start_2);
+            tv_project2_end_time.setText(resumeInfo.project_end_2);
+            et_project2_title.setText(resumeInfo.project_title_2);
+            et_project2_content.setText(resumeInfo.project_info_2);
+        }
+        if (resumeInfo.project_title_3 != null){
+            proCount = 3;
+            tv_project3_start_time.setText(resumeInfo.project_start_3);
+            tv_project3_end_time.setText(resumeInfo.project_end_3);
+            et_project3_title.setText(resumeInfo.project_title_3);
+            et_project3_content.setText(resumeInfo.project_info_3);
         }
 
     }
@@ -238,45 +216,21 @@ public class ProjectInfoFragment extends Fragment implements View.OnClickListene
                 }
                 break;
             case R.id.bt_next:
-                editActivity.resumeInfo.getProjectInfos().clear();
-                switch (proCount){
-                    case 1:
-                        ProjectInfo projectInfo_1_1 = new ProjectInfo(et_project1_title.getText().toString(),
-                                                                      tv_project1_start_time.getText().toString(),
-                                                                      tv_project1_end_time.getText().toString(),
-                                                                      et_project1_content.getText().toString());
-                        editActivity.resumeInfo.getProjectInfos().add(projectInfo_1_1);
-                        break;
-                    case 2:
-                        ProjectInfo projectInfo_2_1 = new ProjectInfo(et_project1_title.getText().toString(),
-                                tv_project1_start_time.getText().toString(),
-                                tv_project1_end_time.getText().toString(),
-                                et_project1_content.getText().toString());
-                        ProjectInfo projectInfo_2_2 = new ProjectInfo(et_project2_title.getText().toString(),
-                                tv_project2_start_time.getText().toString(),
-                                tv_project2_end_time.getText().toString(),
-                                et_project2_content.getText().toString());
-                        editActivity.resumeInfo.getProjectInfos().add(projectInfo_2_1);
-                        editActivity.resumeInfo.getProjectInfos().add(projectInfo_2_2);
-                        break;
-                    case 3:
-                        ProjectInfo projectInfo_3_1 = new ProjectInfo(et_project1_title.getText().toString(),
-                                tv_project1_start_time.getText().toString(),
-                                tv_project1_end_time.getText().toString(),
-                                et_project1_content.getText().toString());
-                        ProjectInfo projectInfo_3_2 = new ProjectInfo(et_project2_title.getText().toString(),
-                                tv_project2_start_time.getText().toString(),
-                                tv_project2_end_time.getText().toString(),
-                                et_project2_content.getText().toString());
-                        ProjectInfo projectInfo_3_3 = new ProjectInfo(et_project3_title.getText().toString(),
-                                tv_project3_start_time.getText().toString(),
-                                tv_project3_end_time.getText().toString(),
-                                et_project3_content.getText().toString());
-                        editActivity.resumeInfo.getProjectInfos().add(projectInfo_3_1);
-                        editActivity.resumeInfo.getProjectInfos().add(projectInfo_3_2);
-                        editActivity.resumeInfo.getProjectInfos().add(projectInfo_3_3);
-                        break;
-                }
+                resumeInfo.project_title_1 = et_project2_title.getText().toString();
+                resumeInfo.project_start_1 = tv_project2_start_time.getText().toString();
+                resumeInfo.project_end_1 = tv_project2_end_time.getText().toString();
+                resumeInfo.project_job_1 = et_project2_content.getText().toString();
+
+                resumeInfo.project_title_2 = et_project2_title.getText().toString();
+                resumeInfo.project_start_2 = tv_project2_start_time.getText().toString();
+                resumeInfo.project_end_2 = tv_project2_end_time.getText().toString();
+                resumeInfo.project_job_2 = et_project2_content.getText().toString();
+
+                resumeInfo.project_title_2 = et_project2_title.getText().toString();
+                resumeInfo.project_start_2 = tv_project2_start_time.getText().toString();
+                resumeInfo.project_end_2 = tv_project2_end_time.getText().toString();
+                resumeInfo.project_job_2 = et_project2_content.getText().toString();
+
                 editActivity.viewPager.setCurrentItem(3);
                 break;
         }

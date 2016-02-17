@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.shixipai.R;
 import com.shixipai.bean.edit.BaseInfo;
 import com.shixipai.bean.edit.EduInfo;
+import com.shixipai.bean.edit.ResumeInfo;
 import com.shixipai.ui.edit.EditActivity;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
@@ -30,7 +31,7 @@ import butterknife.ButterKnife;
 public class EduInfoFrragment extends Fragment implements View.OnClickListener, DatePickerDialog.OnDateSetListener {
     public final static String PARAM_TYPE = "edu_info";
 
-    private ArrayList<EduInfo> eduInfos = new ArrayList<EduInfo>();
+    private ResumeInfo resumeInfo;
 
     private EditActivity editActivity;
 
@@ -104,11 +105,11 @@ public class EduInfoFrragment extends Fragment implements View.OnClickListener, 
     //用来区分第几个教育信息的毕业时间
     private int timeTag = 1;
 
-    public static EduInfoFrragment getInstance(ArrayList<EduInfo> eduInfos){
+    public static EduInfoFrragment getInstance(ResumeInfo resumeInfo){
         EduInfoFrragment eduInfoFrragment = new EduInfoFrragment();
 
         Bundle bundle = new Bundle();
-        bundle.putSerializable(PARAM_TYPE, eduInfos);
+        bundle.putSerializable(PARAM_TYPE, resumeInfo);
         eduInfoFrragment.setArguments(bundle);
         return eduInfoFrragment;
     }
@@ -116,7 +117,7 @@ public class EduInfoFrragment extends Fragment implements View.OnClickListener, 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        eduInfos = (ArrayList<EduInfo>)getArguments().getSerializable(PARAM_TYPE);
+        resumeInfo = (ResumeInfo)getArguments().getSerializable(PARAM_TYPE);
         EditActivity editActivity = (EditActivity)getActivity();
     }
 
@@ -133,51 +134,32 @@ public class EduInfoFrragment extends Fragment implements View.OnClickListener, 
     }
 
     private void bindInfo() {
-        switch(eduInfos.size()){
-            case 0:
-                eduCount = 1;
-                break;
-            case 1:
-                eduCount = 1;
-                tv_edu1_end_time.setText(eduInfos.get(0).getEnd_time());
-                et_edu1_school.setText(eduInfos.get(0).getSchool());
-                et_edu1_level.setText(eduInfos.get(0).getLevel());
-                et_edu1_major.setText(eduInfos.get(0).getMajor());
-                break;
-            case 2:
-                eduCount = 2;
-                tv_edu1_end_time.setText(eduInfos.get(0).getEnd_time());
-                et_edu1_school.setText(eduInfos.get(0).getSchool());
-                et_edu1_level.setText(eduInfos.get(0).getLevel());
-                et_edu1_major.setText(eduInfos.get(0).getMajor());
+        if (resumeInfo.school_1 == null){
+            eduCount = 1;
+        }else {
+            eduCount = 1;
+            tv_edu1_end_time.setText(resumeInfo.graduated_time_1);
+            et_edu1_school.setText(resumeInfo.school_1);
+            et_edu1_level.setText(resumeInfo.grade_1);
+            et_edu1_major.setText(resumeInfo.professional_1);
+        }
+        if (resumeInfo.school_2 != null){
+            eduCount = 2;
+            tv_edu2_end_time.setText(resumeInfo.graduated_time_2);
+            et_edu2_school.setText(resumeInfo.school_2);
+            et_edu2_level.setText(resumeInfo.grade_2);
+            et_edu2_major.setText(resumeInfo.professional_2);
 
-                tv_edu2_end_time.setText(eduInfos.get(1).getEnd_time());
-                et_edu2_school.setText(eduInfos.get(1).getSchool());
-                et_edu2_level.setText(eduInfos.get(1).getLevel());
-                et_edu2_major.setText(eduInfos.get(1).getMajor());
+            layout_edu2.setVisibility(View.VISIBLE);
+        }
+        if (resumeInfo.school_3 != null){
+            eduCount = 3;
+            tv_edu3_end_time.setText(resumeInfo.graduated_time_3);
+            et_edu3_school.setText(resumeInfo.school_3);
+            et_edu3_level.setText(resumeInfo.grade_3);
+            et_edu3_major.setText(resumeInfo.professional_3);
 
-                layout_edu2.setVisibility(View.VISIBLE);
-                break;
-            case 3:
-                eduCount = 3;
-                tv_edu1_end_time.setText(eduInfos.get(0).getEnd_time());
-                et_edu1_school.setText(eduInfos.get(0).getSchool());
-                et_edu1_level.setText(eduInfos.get(0).getLevel());
-                et_edu1_major.setText(eduInfos.get(0).getMajor());
-
-                tv_edu2_end_time.setText(eduInfos.get(1).getEnd_time());
-                et_edu2_school.setText(eduInfos.get(1).getSchool());
-                et_edu2_level.setText(eduInfos.get(1).getLevel());
-                et_edu2_major.setText(eduInfos.get(1).getMajor());
-
-                tv_edu3_end_time.setText(eduInfos.get(2).getEnd_time());
-                et_edu3_school.setText(eduInfos.get(2).getSchool());
-                et_edu3_level.setText(eduInfos.get(2).getLevel());
-                et_edu3_major.setText(eduInfos.get(2).getMajor());
-
-                layout_edu2.setVisibility(View.VISIBLE);
-                layout_edu3.setVisibility(View.VISIBLE);
-                break;
+            layout_edu3.setVisibility(View.VISIBLE);
         }
     }
 
@@ -215,45 +197,21 @@ public class EduInfoFrragment extends Fragment implements View.OnClickListener, 
                 }
                 break;
             case R.id.bt_next:
-                editActivity.resumeInfo.getEduInfos().clear();
-                switch (eduCount){
-                    case 1:
-                        EduInfo eduInfo_1_1 = new EduInfo(et_edu1_school.getText().toString(),
-                                et_edu1_level.getText().toString(),
-                                tv_edu1_end_time.getText().toString(),
-                                et_edu1_major.getText().toString());
-                        editActivity.resumeInfo.getEduInfos().add(eduInfo_1_1);
-                        break;
-                    case 2:
-                        EduInfo eduInfo_2_1 = new EduInfo(et_edu1_school.getText().toString(),
-                                et_edu1_level.getText().toString(),
-                                tv_edu1_end_time.getText().toString(),
-                                et_edu1_major.getText().toString());
-                        EduInfo eduInfo_2_2 = new EduInfo(et_edu2_school.getText().toString(),
-                                et_edu2_level.getText().toString(),
-                                tv_edu2_end_time.getText().toString(),
-                                et_edu2_major.getText().toString());
-                        editActivity.resumeInfo.getEduInfos().add(eduInfo_2_1);
-                        editActivity.resumeInfo.getEduInfos().add(eduInfo_2_2);
-                        break;
-                    case 3:
-                        EduInfo eduInfo_3_1 = new EduInfo(et_edu1_school.getText().toString(),
-                                et_edu1_level.getText().toString(),
-                                tv_edu1_end_time.getText().toString(),
-                                et_edu1_major.getText().toString());
-                        EduInfo eduInfo_3_2 = new EduInfo(et_edu2_school.getText().toString(),
-                                et_edu2_level.getText().toString(),
-                                tv_edu2_end_time.getText().toString(),
-                                et_edu2_major.getText().toString());
-                        EduInfo eduInfo_3_3 = new EduInfo(et_edu3_school.getText().toString(),
-                                et_edu3_level.getText().toString(),
-                                tv_edu3_end_time.getText().toString(),
-                                et_edu3_major.getText().toString());
-                        editActivity.resumeInfo.getEduInfos().add(eduInfo_3_1);
-                        editActivity.resumeInfo.getEduInfos().add(eduInfo_3_2);
-                        editActivity.resumeInfo.getEduInfos().add(eduInfo_3_3);
-                        break;
-                }
+                resumeInfo.school_1 = et_edu1_school.getText().toString();
+                resumeInfo.grade_1 = et_edu1_level.getText().toString();
+                resumeInfo.graduated_time_1 = tv_edu1_end_time.getText().toString();
+                resumeInfo.professional_1 = et_edu1_major.getText().toString();
+
+                resumeInfo.school_2 = et_edu2_school.getText().toString();
+                resumeInfo.grade_2 = et_edu2_level.getText().toString();
+                resumeInfo.graduated_time_2 = tv_edu2_end_time.getText().toString();
+                resumeInfo.professional_2 = et_edu2_major.getText().toString();
+
+                resumeInfo.school_3 = et_edu3_school.getText().toString();
+                resumeInfo.grade_3 = et_edu3_level.getText().toString();
+                resumeInfo.graduated_time_3 = tv_edu3_end_time.getText().toString();
+                resumeInfo.professional_3 = et_edu3_major.getText().toString();
+
                 editActivity.viewPager.setCurrentItem(2);
                 break;
         }

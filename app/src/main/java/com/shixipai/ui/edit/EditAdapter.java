@@ -3,7 +3,11 @@ package com.shixipai.ui.edit;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.shixipai.bean.edit.BaseInfo;
+import com.shixipai.bean.edit.EduInfo;
+import com.shixipai.bean.edit.ProjectInfo;
 import com.shixipai.bean.edit.ResumeInfo;
+import com.shixipai.bean.edit.WantInfo;
 import com.shixipai.ui.edit.editinfo.base.BaseInfoFragment;
 import com.shixipai.ui.edit.editinfo.edu.EduInfoFrragment;
 import com.shixipai.ui.edit.editinfo.project.ProjectInfoFragment;
@@ -20,10 +24,10 @@ public class EditAdapter extends FragmentPagerAdapter {
     public EditAdapter(android.support.v4.app.FragmentManager fm,ResumeInfo resumeInfo){
         super(fm);
 
-        mFragments.add(BaseInfoFragment.getInstance(resumeInfo.getBaseInfo()));
-        mFragments.add(EduInfoFrragment.getInstance(resumeInfo.getEduInfos()));
-        mFragments.add(ProjectInfoFragment.getInstance(resumeInfo.getProjectInfos()));
-        mFragments.add(WantInfoFragment.getInstance(resumeInfo.getWantInfo()));
+        mFragments.add(BaseInfoFragment.getInstance(resumeInfo));
+        mFragments.add(EduInfoFrragment.getInstance(resumeInfo));
+        mFragments.add(ProjectInfoFragment.getInstance(resumeInfo));
+        mFragments.add(WantInfoFragment.getInstance(resumeInfo));
     }
 
     @Override
