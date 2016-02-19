@@ -2,6 +2,7 @@ package com.shixipai.ui.edit.editinfo.edu;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -118,7 +119,7 @@ public class EduInfoFrragment extends Fragment implements View.OnClickListener, 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         resumeInfo = (ResumeInfo)getArguments().getSerializable(PARAM_TYPE);
-        EditActivity editActivity = (EditActivity)getActivity();
+        editActivity = (EditActivity)getActivity();
     }
 
     @Override
@@ -188,10 +189,13 @@ public class EduInfoFrragment extends Fragment implements View.OnClickListener, 
                 timeTag = 3;
                 break;
             case R.id.bt_add_info:
+                Log.i("test","here");
                 if (eduCount == 1){
                     layout_edu2.setVisibility(View.VISIBLE);
+                    eduCount = 2;
                 }else if (eduCount == 2){
                     layout_edu3.setVisibility(View.VISIBLE);
+                    eduCount = 3;
                 }else {
                     Toast.makeText(getActivity(),"最多添加三条记录",Toast.LENGTH_SHORT).show();
                 }

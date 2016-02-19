@@ -58,7 +58,7 @@ public class WantInfoFragment extends Fragment implements View.OnClickListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         resumeInfo = (ResumeInfo)getArguments().getSerializable(PARAM_TYPE);
-        EditActivity editActivity = (EditActivity)getActivity();
+        editActivity = (EditActivity)getActivity();
     }
 
     @Override

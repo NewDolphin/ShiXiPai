@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class ResumeInfo implements Serializable{
     public String name;
-    public String sex;
+    public String sex = "";
     public String birthday;
     public String mail;
     public String phone;

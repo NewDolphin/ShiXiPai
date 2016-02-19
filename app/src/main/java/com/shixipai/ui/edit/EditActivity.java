@@ -27,10 +27,15 @@ public class EditActivity extends AppCompatActivity{
     @Bind(R.id.viewpager_edit)
     public ViewPager viewPager;
 
+    private static final String PARAM_ID = "resume";
+
     public ResumeInfo resumeInfo;
 
-    public static void actionStart(Context context) {
+    public static void actionStart(Context context,ResumeInfo resumeInfo) {
         Intent intent = new Intent(context, EditActivity.class);
+        Bundle mBundle = new Bundle();
+        mBundle.putSerializable(PARAM_ID,resumeInfo);
+        intent.putExtras(mBundle);
         context.startActivity(intent);
     }
 
@@ -47,7 +52,7 @@ public class EditActivity extends AppCompatActivity{
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
-        resumeInfo = new ResumeInfo();
+        resumeInfo = (ResumeInfo)getIntent().getSerializableExtra(PARAM_ID);
 
         FragmentPagerAdapter fragmentPagerAdapter = new EditAdapter(getSupportFragmentManager(),resumeInfo);
         viewPager.setAdapter(fragmentPagerAdapter);

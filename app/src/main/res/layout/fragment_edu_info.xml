@@ -57,7 +57,6 @@
                     android:layout_marginLeft="80dp"
                     android:layout_marginRight="10dp"
                     android:drawableRight="@drawable/ic_action_right_arrow"
-                    android:text="2017-10-1"
                     android:textColor="#000"
                     android:textSize="16sp"
                     android:visibility="visible" />
@@ -93,7 +92,6 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="80dp"
                     android:background="@null"
-                    android:text="天津大学"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -127,7 +125,6 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="80dp"
                     android:background="@null"
-                    android:text="本科"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -160,7 +157,6 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="80dp"
                     android:background="@null"
-                    android:text="软件工程"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -214,7 +210,6 @@
                     android:layout_marginLeft="80dp"
                     android:layout_marginRight="10dp"
                     android:drawableRight="@drawable/ic_action_right_arrow"
-                    android:text="2017-10-1"
                     android:textColor="#000"
                     android:textSize="16sp"
                     android:visibility="visible" />
@@ -250,7 +245,6 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="80dp"
                     android:background="@null"
-                    android:text="天津大学"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -284,7 +278,6 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="80dp"
                     android:background="@null"
-                    android:text="本科"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -317,7 +310,6 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="80dp"
                     android:background="@null"
-                    android:text="软件工程"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -371,7 +363,6 @@
                     android:layout_marginLeft="80dp"
                     android:layout_marginRight="10dp"
                     android:drawableRight="@drawable/ic_action_right_arrow"
-                    android:text="2017-10-1"
                     android:textColor="#000"
                     android:textSize="16sp"
                     android:visibility="visible" />
@@ -407,7 +398,6 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="80dp"
                     android:background="@null"
-                    android:text="天津大学"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -441,7 +431,6 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="80dp"
                     android:background="@null"
-                    android:text="本科"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -474,7 +463,6 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="80dp"
                     android:background="@null"
-                    android:text="软件工程"
                     android:textSize="16sp" />
             </LinearLayout>
 

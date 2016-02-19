@@ -132,6 +132,8 @@ public class ResumeFragment extends BaseFragment implements ResumeView  {
     @Bind(R.id.tv_want_extra)
     TextView tv_want_extra;
 
+    private ResumeInfo resumeInfo;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_resume, container, false);
@@ -155,7 +157,7 @@ public class ResumeFragment extends BaseFragment implements ResumeView  {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_edit:
-                EditActivity.actionStart(getActivity());
+                EditActivity.actionStart(getActivity(),resumeInfo);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -178,6 +180,8 @@ public class ResumeFragment extends BaseFragment implements ResumeView  {
 
     @Override
     public void addData(ResumeInfo resumeInfo) {
+        this.resumeInfo = resumeInfo;
+
         if (resumeInfo.name==null&&resumeInfo.birthday==null&resumeInfo.mail==null&&resumeInfo.phone==null){
             tv_part1_empty.setVisibility(View.VISIBLE);
         }

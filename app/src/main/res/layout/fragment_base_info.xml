@@ -52,7 +52,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="80dp"
                 android:background="@null"
-                android:text="李明"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -135,7 +134,6 @@
                 android:layout_marginLeft="80dp"
                 android:layout_marginRight="10dp"
                 android:drawableRight="@drawable/ic_action_right_arrow"
-                android:text="1995-10-1"
                 android:textColor="#000"
                 android:textSize="16sp"
                 android:visibility="visible" />
@@ -170,7 +168,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="80dp"
                 android:background="@null"
-                android:text="13920218569"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -204,17 +201,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="80dp"
                 android:background="@null"
-                android:text="liming@tju.edu.cn"
                 android:textSize="16sp" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#CCC" />
-
 
         <View
             android:layout_width="match_parent"
@@ -250,7 +238,6 @@
             android:layout_height="30dp" />
 
     </LinearLayout>
-
 
 </ScrollView>
 

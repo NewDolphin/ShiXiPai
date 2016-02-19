@@ -125,7 +125,7 @@ public class ProjectInfoFragment extends Fragment implements View.OnClickListene
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         resumeInfo = (ResumeInfo)getArguments().getSerializable(PARAM_TYPE);
-        EditActivity editActivity = (EditActivity)getActivity();
+        editActivity = (EditActivity)getActivity();
     }
 
     @Override
@@ -209,8 +209,10 @@ public class ProjectInfoFragment extends Fragment implements View.OnClickListene
             case R.id.bt_add_info:
                 if (proCount == 1){
                     layout_project2.setVisibility(View.VISIBLE);
+                    proCount = 2;
                 }else if (proCount == 2){
                     layout_project3.setVisibility(View.VISIBLE);
+                    proCount = 3;
                 }else {
                     Toast.makeText(getActivity(), "最多添加三条记录", Toast.LENGTH_SHORT).show();
                 }

@@ -85,7 +85,7 @@ public class BaseInfoFragment extends Fragment implements View.OnClickListener, 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         resumeInfo = (ResumeInfo)getArguments().getSerializable(PARAM_TYPE);
-        EditActivity editActivity = (EditActivity)getActivity();
+        editActivity = (EditActivity)getActivity();
     }
 
     @Override
@@ -104,7 +104,8 @@ public class BaseInfoFragment extends Fragment implements View.OnClickListener, 
         et_name.setText(resumeInfo.name);
         if (resumeInfo.sex.equals("男")){
             radio_bt_male.setChecked(true);
-        }else if (resumeInfo.sex.equals("女")){
+        }
+        if (resumeInfo.sex.equals("女")){
             radio_bt_female.setChecked(true);
         }
         tv_birthday.setText(resumeInfo.birthday);

@@ -40,7 +40,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="80dp"
                 android:background="@null"
-                android:text="互联网"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -73,7 +72,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="80dp"
                 android:background="@null"
-                android:text="软件工程师"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -108,7 +106,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="80dp"
                 android:background="@null"
-                android:text="北京"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -143,7 +140,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="80dp"
                 android:background="@null"
-                android:text="100/天"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -178,7 +174,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="80dp"
                 android:background="@null"
-                android:text="不想加班"
                 android:textSize="16sp" />
 
         </LinearLayout>
