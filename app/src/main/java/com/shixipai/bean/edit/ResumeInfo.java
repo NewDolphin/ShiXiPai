@@ -43,6 +43,7 @@ public class ResumeInfo implements Serializable{
     public String project_end_2;
     public String project_job_2;
     public String project_info_2;
+
     public String project_title_3;
     public String project_start_3;
     public String project_end_3;

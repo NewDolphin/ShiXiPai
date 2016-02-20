@@ -1,18 +1,26 @@
 package com.shixipai.ui.edit.editinfo.want;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.Toast;
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.shixipai.R;
-import com.shixipai.bean.edit.ProjectInfo;
 import com.shixipai.bean.edit.ResumeInfo;
-import com.shixipai.bean.edit.WantInfo;
+import com.shixipai.ui.BaseFragment;
 import com.shixipai.ui.edit.EditActivity;
+import com.shixipai.ui.resume.ResumeModule;
+import com.shixipai.ui.resume.ResumePresenter;
+
+import java.util.Arrays;
+import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,12 +28,19 @@ import butterknife.ButterKnife;
 /**
  * Created by xiepeng on 16/2/5.
  */
-public class WantInfoFragment extends Fragment implements View.OnClickListener{
+public class WantInfoFragment extends BaseFragment implements View.OnClickListener,WantView{
+    @Inject
+    PostResumePresenter presenter;
+
     public final static String PARAM_TYPE = "want_info";
 
     private ResumeInfo resumeInfo;
 
     private EditActivity editActivity;
+
+    private boolean showDialog = false;
+
+    private MaterialDialog dialog;
 
     @Bind(R.id.et_scope)
     EditText et_scope;
@@ -70,6 +85,8 @@ public class WantInfoFragment extends Fragment implements View.OnClickListener{
 
         bindEvent();
 
+        dialog = createDialog().build();
+
         return rootView;
     }
 
@@ -89,12 +106,52 @@ public class WantInfoFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_save:
-                resumeInfo.want_scope = et_scope.getText().toString();
-                resumeInfo.want_job = et_job.getText().toString();
-                resumeInfo.want_area = et_city.getText().toString();
-                resumeInfo.want_salary = et_money.getText().toString();
-                resumeInfo.add_info = et_extra.getText().toString();
+                editActivity.resumeInfo.want_scope = et_scope.getText().toString();
+                editActivity.resumeInfo.want_job = et_job.getText().toString();
+                editActivity.resumeInfo.want_area = et_city.getText().toString();
+                editActivity.resumeInfo.want_salary = et_money.getText().toString();
+                editActivity.resumeInfo.add_info = et_extra.getText().toString();
+
+                showDialog = true;
+                dialog.show();
+
+                presenter.postResume(editActivity.resumeInfo);
                 break;
+        }
+    }
+
+    private MaterialDialog.Builder createDialog(){
+        MaterialDialog.Builder builder = new MaterialDialog.Builder(getActivity())
+                .title("正在上传信息")
+                .content("请稍等")
+                .negativeText("取消")
+                .onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(MaterialDialog dialog, DialogAction which) {
+                        Toast.makeText(getActivity(),"cancel",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .progress(true, 0)
+                .cancelable(false)
+                .progressIndeterminateStyle(false); //false表示不是horizontal
+
+        return builder;
+    }
+
+    @Override
+    protected List<Object> getModules() {
+        return Arrays.<Object>asList(new PostResumeModule(this));
+    }
+
+    @Override
+    public void postResult(boolean result) {
+        if (result){
+
+            if (showDialog){
+                dialog.dismiss();
+                getActivity().finish();
+                Toast.makeText(getActivity(),"信息上传成功",Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

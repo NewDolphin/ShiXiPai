@@ -1,5 +1,7 @@
 package com.shixipai.ui.jobClassify.jobClassifyDetail;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,14 +10,19 @@ import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.shixipai.R;
 import com.shixipai.bean.JobDetail;
+import com.shixipai.support.ResourceHelper;
 import com.shixipai.ui.BaseActivity;
 import com.shixipai.ui.jobClassify.jobClassifyList.JobClassifyListModule;
 import com.squareup.picasso.Picasso;
@@ -31,7 +38,7 @@ import butterknife.ButterKnife;
 /**
  * Created by xiepeng on 16/1/23.
  */
-public class JobClassifyDetailActivity extends BaseActivity implements JobDetailView{
+public class JobClassifyDetailActivity extends BaseActivity implements JobDetailView, View.OnClickListener{
     @Inject
     JobDetailPresenter presenter;
 
@@ -68,6 +75,16 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
     @Bind(R.id.layout_job_detail_send)
     LinearLayout layout_send;
 
+    @Bind(R.id.bt_job_detail_collect)
+    Button bt_collect;
+
+    @Bind(R.id.bt_job_detail_post)
+    Button bt_post;
+
+    int jobId;
+
+    private MaterialDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,12 +94,15 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
 
         initToolBar();
 
-        int id = getIntent().getIntExtra("id",0);
+        jobId = getIntent().getIntExtra("id",0);
 
         showProgress();
 
-        presenter.loadData(id);
+        presenter.loadData(jobId);
 
+        bt_post.setOnClickListener(this);
+
+        dialog = createDialog(this).build();
     }
 
     private void initToolBar() {
@@ -129,6 +149,20 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
     }
 
     @Override
+    public void postJobSuccess(boolean result) {
+        if (result){
+            dialog.dismiss();
+            Toast.makeText(this,"投递成功",Toast.LENGTH_SHORT).show();
+            bt_post.setBackground(ResourceHelper.getDrawable(R.drawable.background_bt_posted));
+            bt_post.setText("已投递");
+            bt_post.setClickable(false);
+            Drawable drawable = ResourceHelper.getDrawable(R.mipmap.ic_job_detail_posted);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            bt_post.setCompoundDrawables(null, drawable, null, null);
+        }
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return super.onCreateOptionsMenu(menu);
     }
@@ -141,5 +175,33 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.bt_job_detail_post:
+                dialog.show();
+                presenter.postJob(jobId);
+                break;
+        }
+    }
+
+    private MaterialDialog.Builder createDialog(final Context context){
+        MaterialDialog.Builder builder = new MaterialDialog.Builder(this)
+                .title("正在投递简历")
+                .content("请稍等")
+                .negativeText("取消")
+                .onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(MaterialDialog dialog, DialogAction which) {
+                        Toast.makeText(context, "cancel", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .progress(true, 0)
+                .cancelable(false)
+                .progressIndeterminateStyle(false); //false表示不是horizontal
+
+        return builder;
     }
 }

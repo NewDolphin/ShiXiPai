@@ -6,4 +6,6 @@ package com.shixipai.ui.jobClassify.jobClassifyDetail;
 public interface JobDetailPresenter {
     //加载数据
     void loadData(int id);
+
+    void postJob(int id);
 }

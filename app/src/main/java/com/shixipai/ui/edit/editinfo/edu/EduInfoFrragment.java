@@ -144,7 +144,7 @@ public class EduInfoFrragment extends Fragment implements View.OnClickListener, 
             et_edu1_level.setText(resumeInfo.grade_1);
             et_edu1_major.setText(resumeInfo.professional_1);
         }
-        if (resumeInfo.school_2 != null){
+        if (resumeInfo.school_2 != null && !resumeInfo.school_2.equals("")){
             eduCount = 2;
             tv_edu2_end_time.setText(resumeInfo.graduated_time_2);
             et_edu2_school.setText(resumeInfo.school_2);
@@ -153,7 +153,7 @@ public class EduInfoFrragment extends Fragment implements View.OnClickListener, 
 
             layout_edu2.setVisibility(View.VISIBLE);
         }
-        if (resumeInfo.school_3 != null){
+        if (resumeInfo.school_3 != null && !resumeInfo.school_3.equals("")){
             eduCount = 3;
             tv_edu3_end_time.setText(resumeInfo.graduated_time_3);
             et_edu3_school.setText(resumeInfo.school_3);
@@ -201,20 +201,20 @@ public class EduInfoFrragment extends Fragment implements View.OnClickListener, 
                 }
                 break;
             case R.id.bt_next:
-                resumeInfo.school_1 = et_edu1_school.getText().toString();
-                resumeInfo.grade_1 = et_edu1_level.getText().toString();
-                resumeInfo.graduated_time_1 = tv_edu1_end_time.getText().toString();
-                resumeInfo.professional_1 = et_edu1_major.getText().toString();
+                editActivity.resumeInfo.school_1 = et_edu1_school.getText().toString();
+                editActivity.resumeInfo.grade_1 = et_edu1_level.getText().toString();
+                editActivity.resumeInfo.graduated_time_1 = tv_edu1_end_time.getText().toString();
+                editActivity.resumeInfo.professional_1 = et_edu1_major.getText().toString();
 
-                resumeInfo.school_2 = et_edu2_school.getText().toString();
-                resumeInfo.grade_2 = et_edu2_level.getText().toString();
-                resumeInfo.graduated_time_2 = tv_edu2_end_time.getText().toString();
-                resumeInfo.professional_2 = et_edu2_major.getText().toString();
+                editActivity.resumeInfo.school_2 = et_edu2_school.getText().toString();
+                editActivity.resumeInfo.grade_2 = et_edu2_level.getText().toString();
+                editActivity.resumeInfo.graduated_time_2 = tv_edu2_end_time.getText().toString();
+                editActivity.resumeInfo.professional_2 = et_edu2_major.getText().toString();
 
-                resumeInfo.school_3 = et_edu3_school.getText().toString();
-                resumeInfo.grade_3 = et_edu3_level.getText().toString();
-                resumeInfo.graduated_time_3 = tv_edu3_end_time.getText().toString();
-                resumeInfo.professional_3 = et_edu3_major.getText().toString();
+                editActivity.resumeInfo.school_3 = et_edu3_school.getText().toString();
+                editActivity.resumeInfo.grade_3 = et_edu3_level.getText().toString();
+                editActivity.resumeInfo.graduated_time_3 = tv_edu3_end_time.getText().toString();
+                editActivity.resumeInfo.professional_3 = et_edu3_major.getText().toString();
 
                 editActivity.viewPager.setCurrentItem(2);
                 break;

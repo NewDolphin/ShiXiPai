@@ -1,5 +1,6 @@
 package com.shixipai.ui.resume;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import com.shixipai.R;
 import com.shixipai.bean.edit.ResumeInfo;
+import com.shixipai.support.ResourceHelper;
 import com.shixipai.ui.BaseFragment;
 import com.shixipai.ui.edit.EditActivity;
 import com.shixipai.ui.jobClassify.jobClassifyDetail.JobDetailModule;
@@ -188,6 +190,19 @@ public class ResumeFragment extends BaseFragment implements ResumeView  {
         if (resumeInfo.name != null){
             tv_username.setText(resumeInfo.name);
             tv_username.setVisibility(View.VISIBLE);
+            if (resumeInfo.sex != null){
+                if (!resumeInfo.sex.equals("")){
+                    if (resumeInfo.sex.equals("男")){
+                        Drawable drawable = ResourceHelper.getDrawable(R.drawable.ic_male);
+                        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                        tv_username.setCompoundDrawables(null, null, drawable, null);
+                    }else if (resumeInfo.sex.equals("女")){
+                        Drawable drawable = ResourceHelper.getDrawable(R.drawable.ic_female);
+                        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                        tv_username.setCompoundDrawables(null, null, drawable, null);
+                    }
+                }
+            }
         }
         if (resumeInfo.birthday != null){
             tv_birthday.setText(resumeInfo.birthday);
@@ -204,7 +219,7 @@ public class ResumeFragment extends BaseFragment implements ResumeView  {
 
 
 
-        if (resumeInfo.school_1 == null){
+        if (resumeInfo.school_1 == null || resumeInfo.school_1.equals("")){
             tv_part2_empty.setVisibility(View.VISIBLE);
         }else {
             part2_edu1.setVisibility(View.VISIBLE);
@@ -214,23 +229,25 @@ public class ResumeFragment extends BaseFragment implements ResumeView  {
             tv_edu1_major.setText(resumeInfo.professional_1);
         }
         if (resumeInfo.school_2 != null){
-            part2_edu2.setVisibility(View.VISIBLE);
-            tv_edu2_school.setText(resumeInfo.school_2);
-            tv_edu2_school_end_time.setText(resumeInfo.graduated_time_2);
-            tv_edu2_level.setText(resumeInfo.grade_2);
-            tv_edu2_major.setText(resumeInfo.professional_2);
+            if (!resumeInfo.school_2.equals("")){
+                part2_edu2.setVisibility(View.VISIBLE);
+                tv_edu2_school.setText(resumeInfo.school_2);
+                tv_edu2_school_end_time.setText(resumeInfo.graduated_time_2);
+                tv_edu2_level.setText(resumeInfo.grade_2);
+                tv_edu2_major.setText(resumeInfo.professional_2);
+            }
         }
         if (resumeInfo.school_3 != null){
-            part2_edu3.setVisibility(View.VISIBLE);
-            tv_edu3_school.setText(resumeInfo.school_3);
-            tv_edu3_school_end_time.setText(resumeInfo.graduated_time_3);
-            tv_edu3_level.setText(resumeInfo.grade_3);
-            tv_edu3_major.setText(resumeInfo.professional_3);
+            if (!resumeInfo.school_3.equals("")){
+                part2_edu3.setVisibility(View.VISIBLE);
+                tv_edu3_school.setText(resumeInfo.school_3);
+                tv_edu3_school_end_time.setText(resumeInfo.graduated_time_3);
+                tv_edu3_level.setText(resumeInfo.grade_3);
+                tv_edu3_major.setText(resumeInfo.professional_3);
+            }
         }
 
-
-
-        if (resumeInfo.project_title_1 == null){
+        if (resumeInfo.project_title_1 == null || resumeInfo.project_title_1.equals("")){
             tv_part3_empty.setVisibility(View.VISIBLE);
         }else {
             part3_project1.setVisibility(View.VISIBLE);
@@ -240,18 +257,22 @@ public class ResumeFragment extends BaseFragment implements ResumeView  {
             tv_project1_content.setText(resumeInfo.project_job_1);
         }
         if (resumeInfo.project_title_2 != null){
-            part3_project2.setVisibility(View.VISIBLE);
-            tv_project2_title.setText(resumeInfo.project_title_2);
-            tv_project2_start_time.setText(resumeInfo.project_start_2+" --");
-            tv_project2_end_time.setText(resumeInfo.project_end_2);
-            tv_project2_content.setText(resumeInfo.project_job_2);
+            if (!resumeInfo.project_title_2.equals("")){
+                part3_project2.setVisibility(View.VISIBLE);
+                tv_project2_title.setText(resumeInfo.project_title_2);
+                tv_project2_start_time.setText(resumeInfo.project_start_2+" --");
+                tv_project2_end_time.setText(resumeInfo.project_end_2);
+                tv_project2_content.setText(resumeInfo.project_job_2);
+            }
         }
         if (resumeInfo.project_title_3 != null){
-            part3_project3.setVisibility(View.VISIBLE);
-            tv_project3_title.setText(resumeInfo.project_title_3);
-            tv_project3_start_time.setText(resumeInfo.project_start_3+" --");
-            tv_project3_end_time.setText(resumeInfo.project_end_3);
-            tv_project3_content.setText(resumeInfo.project_job_3);
+            if (!resumeInfo.project_title_3.equals("")){
+                part3_project3.setVisibility(View.VISIBLE);
+                tv_project3_title.setText(resumeInfo.project_title_3);
+                tv_project3_start_time.setText(resumeInfo.project_start_3+" --");
+                tv_project3_end_time.setText(resumeInfo.project_end_3);
+                tv_project3_content.setText(resumeInfo.project_job_3);
+            }
         }
 
 

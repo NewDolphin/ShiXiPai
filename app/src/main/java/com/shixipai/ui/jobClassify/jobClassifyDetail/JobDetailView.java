@@ -15,4 +15,5 @@ public interface JobDetailView {
     //填写数据
     void addData(JobDetail jobDetail);
 
+    void postJobSuccess(boolean result);
 }

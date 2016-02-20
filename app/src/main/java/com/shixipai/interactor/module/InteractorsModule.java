@@ -10,6 +10,8 @@ import com.shixipai.interactor.interview.InterviewQuestionInteractor;
 import com.shixipai.interactor.interview.InterviewQuestionInteractorImpl;
 import com.shixipai.interactor.interview.InterviewTopicInteractor;
 import com.shixipai.interactor.interview.InterviewTopicInteractorImpl;
+import com.shixipai.interactor.resume.PostResumeInteractor;
+import com.shixipai.interactor.resume.PostResumeInteractorImpl;
 import com.shixipai.interactor.resume.ResumeInteractor;
 import com.shixipai.interactor.resume.ResumeInteractorImpl;
 import com.shixipai.interactor.search.SearchInteractor;
@@ -73,8 +75,14 @@ public class InteractorsModule {
     }
 
     @Provides
-    @Singleton
-    public ResumeInteractor provideResumeInteractor(){
+         @Singleton
+         public ResumeInteractor provideResumeInteractor(){
         return new ResumeInteractorImpl();
+    }
+
+    @Provides
+    @Singleton
+    public PostResumeInteractor providePostResumeInteractor(){
+        return new PostResumeInteractorImpl();
     }
 }

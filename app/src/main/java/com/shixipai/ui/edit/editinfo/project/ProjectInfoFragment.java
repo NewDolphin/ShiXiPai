@@ -150,14 +150,14 @@ public class ProjectInfoFragment extends Fragment implements View.OnClickListene
             et_project1_title.setText(resumeInfo.project_title_1);
             et_project1_content.setText(resumeInfo.project_info_1);
         }
-        if (resumeInfo.project_title_2 != null){
+        if (resumeInfo.project_title_2 != null && !resumeInfo.project_title_2.equals("")){
             proCount = 2;
             tv_project2_start_time.setText(resumeInfo.project_start_2);
             tv_project2_end_time.setText(resumeInfo.project_end_2);
             et_project2_title.setText(resumeInfo.project_title_2);
             et_project2_content.setText(resumeInfo.project_info_2);
         }
-        if (resumeInfo.project_title_3 != null){
+        if (resumeInfo.project_title_3 != null && !resumeInfo.project_title_3.equals("")){
             proCount = 3;
             tv_project3_start_time.setText(resumeInfo.project_start_3);
             tv_project3_end_time.setText(resumeInfo.project_end_3);
@@ -166,7 +166,6 @@ public class ProjectInfoFragment extends Fragment implements View.OnClickListene
         }
 
     }
-
 
     private void bindEvent() {
         layout_project1_start_time.setOnClickListener(this);
@@ -218,20 +217,20 @@ public class ProjectInfoFragment extends Fragment implements View.OnClickListene
                 }
                 break;
             case R.id.bt_next:
-                resumeInfo.project_title_1 = et_project2_title.getText().toString();
-                resumeInfo.project_start_1 = tv_project2_start_time.getText().toString();
-                resumeInfo.project_end_1 = tv_project2_end_time.getText().toString();
-                resumeInfo.project_job_1 = et_project2_content.getText().toString();
+                editActivity.resumeInfo.project_title_1 = et_project2_title.getText().toString();
+                editActivity.resumeInfo.project_start_1 = tv_project2_start_time.getText().toString();
+                editActivity.resumeInfo.project_end_1 = tv_project2_end_time.getText().toString();
+                editActivity.resumeInfo.project_job_1 = et_project2_content.getText().toString();
 
-                resumeInfo.project_title_2 = et_project2_title.getText().toString();
-                resumeInfo.project_start_2 = tv_project2_start_time.getText().toString();
-                resumeInfo.project_end_2 = tv_project2_end_time.getText().toString();
-                resumeInfo.project_job_2 = et_project2_content.getText().toString();
+                editActivity.resumeInfo.project_title_2 = et_project2_title.getText().toString();
+                editActivity.resumeInfo.project_start_2 = tv_project2_start_time.getText().toString();
+                editActivity.resumeInfo.project_end_2 = tv_project2_end_time.getText().toString();
+                editActivity.resumeInfo.project_job_2 = et_project2_content.getText().toString();
 
-                resumeInfo.project_title_2 = et_project2_title.getText().toString();
-                resumeInfo.project_start_2 = tv_project2_start_time.getText().toString();
-                resumeInfo.project_end_2 = tv_project2_end_time.getText().toString();
-                resumeInfo.project_job_2 = et_project2_content.getText().toString();
+                editActivity.resumeInfo.project_title_3 = et_project3_title.getText().toString();
+                editActivity.resumeInfo.project_start_3 = tv_project3_start_time.getText().toString();
+                editActivity.resumeInfo.project_end_3 = tv_project3_end_time.getText().toString();
+                editActivity.resumeInfo.project_job_3 = et_project3_content.getText().toString();
 
                 editActivity.viewPager.setCurrentItem(3);
                 break;

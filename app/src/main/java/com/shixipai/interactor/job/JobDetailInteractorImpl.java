@@ -6,6 +6,8 @@ import com.shixipai.api.ApiClient;
 import com.shixipai.bean.JobDetail;
 import com.shixipai.interactor.job.JobDetailInteractor;
 import com.shixipai.ui.jobClassify.jobClassifyDetail.OnGetJobDetailCallback;
+import com.shixipai.ui.jobClassify.jobClassifyDetail.OnPostJobCallback;
+
 import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 
@@ -26,6 +28,18 @@ public class JobDetailInteractorImpl implements JobDetailInteractor {
 
                 onGetJobDetailCallback.onSuccess(jobDetail);
 
+            }
+        });
+    }
+
+    @Override
+    public void postJob(int id, final OnPostJobCallback callback) {
+        ApiClient.postJob(String.valueOf(id),new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+
+                callback.onPostJobSuccess(true);
             }
         });
     }

@@ -3,6 +3,7 @@ package com.shixipai.ui.edit.editinfo.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -120,6 +121,7 @@ public class BaseInfoFragment extends Fragment implements View.OnClickListener, 
                 if (checkedId == radio_bt_male.getId()) {
                     editActivity.resumeInfo.sex = "男";
                 } else if (checkedId == radio_bt_female.getId()) {
+                    Log.i("test","here");
                     editActivity.resumeInfo.sex = "女";
                 }
             }

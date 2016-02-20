@@ -6,7 +6,7 @@ import com.shixipai.interactor.job.JobDetailInteractor;
 /**
  * Created by xiepeng on 16/1/25.
  */
-public class JobDetailPresenterImpl implements JobDetailPresenter,OnGetJobDetailCallback {
+public class JobDetailPresenterImpl implements JobDetailPresenter,OnGetJobDetailCallback,OnPostJobCallback {
     private JobDetailView jobDetailView;
     private JobDetailInteractor interactor;
 
@@ -21,12 +21,28 @@ public class JobDetailPresenterImpl implements JobDetailPresenter,OnGetJobDetail
     }
 
     @Override
+    public void postJob(int id) {
+        interactor.postJob(id,this);
+    }
+
+
+    @Override
     public void onSuccess(JobDetail jobDetail) {
         jobDetailView.addData(jobDetail);
     }
 
     @Override
     public void onFailed(String errorString) {
+
+    }
+
+    @Override
+    public void onPostJobSuccess(boolean result) {
+        jobDetailView.postJobSuccess(result);
+    }
+
+    @Override
+    public void onPostJobFailed(String errorString) {
 
     }
 }
