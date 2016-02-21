@@ -4,6 +4,7 @@ package com.shixipai.bean;
  * Created by xiepeng on 16/1/25.
  */
 public class JobDetail {
+    private int id;
     private String title;
     private String company;
     private String area;
@@ -16,8 +17,10 @@ public class JobDetail {
 
     }
 
-    public JobDetail(String title, String company, String area, String salary, String education,
-                     String info, String company_image) {
+
+    public JobDetail(int id, String title, String company, String area, String salary,
+                     String education, String info, String company_image) {
+        this.id = id;
         this.title = title;
         this.company = company;
         this.area = area;
@@ -25,6 +28,14 @@ public class JobDetail {
         this.education = education;
         this.info = info;
         this.company_image = company_image;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {

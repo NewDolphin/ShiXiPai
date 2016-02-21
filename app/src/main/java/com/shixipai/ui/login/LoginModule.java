@@ -3,7 +3,7 @@ package com.shixipai.ui.login;
 
 
 import com.shixipai.AppModule;
-import com.shixipai.interactor.LoginInteractor;
+import com.shixipai.interactor.login.LoginInteractor;
 
 import javax.inject.Singleton;
 

@@ -54,14 +54,13 @@
                 android:layout_marginTop="20dp"
                 android:textSize="16sp" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="30dp"/>
-
     </ScrollView>
-
 
 </LinearLayout>
 

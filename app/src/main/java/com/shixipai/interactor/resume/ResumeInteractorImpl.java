@@ -1,7 +1,5 @@
 package com.shixipai.interactor.resume;
 
-import android.util.Log;
-
 import com.google.gson.Gson;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.shixipai.api.ApiClient;

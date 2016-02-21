@@ -6,4 +6,6 @@ package com.shixipai.ui.login;
 public interface LoginPresenter {
 
     void validateLogin(String username, String password);
+
+    void syncPostJobId(String username);
 }

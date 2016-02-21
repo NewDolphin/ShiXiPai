@@ -41,6 +41,8 @@ public class ApiClient {
 
     private static final String POST_JOB_URL = "suc-tohfoweb-bcdh-j-deliv";
 
+    private static final String SYNC_POSTED_JOB_URL = "rsm-hdjxcie-dsjuq-de";
+
     static {
         client.setTimeout(DEFAULT_TIMEOUT);
         client.setCookieStore(sCookieStore);
@@ -168,4 +170,11 @@ public class ApiClient {
 
         client.post(BASE_URL + POST_JOB_URL, params, handler);
     }
+
+    public static void syncPostedJob(String username, JsonHttpResponseHandler handler){
+
+        client.get(BASE_URL+SYNC_POSTED_JOB_URL+"/"+username,handler);
+
+    }
+
 }

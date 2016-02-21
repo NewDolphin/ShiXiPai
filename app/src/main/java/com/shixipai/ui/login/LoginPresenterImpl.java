@@ -4,17 +4,24 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.shixipai.R;
+import com.shixipai.ShiXiPaiApp;
 import com.shixipai.bean.User;
-import com.shixipai.interactor.LoginInteractor;
+import com.shixipai.bean.login.PostedJob;
+import com.shixipai.dbgenerator.PostedJobDao;
+import com.shixipai.interactor.login.LoginInteractor;
 import com.shixipai.support.NetworkHelper;
 import com.shixipai.support.PrefUtils;
 import com.shixipai.support.ResourceHelper;
+
+import java.util.ArrayList;
+
+import de.greenrobot.dao.query.Query;
 
 
 /**
  * Created by xiepeng on 16/1/13.
  */
-public class LoginPresenterImpl implements LoginPresenter, OnLoginCallback {
+public class LoginPresenterImpl implements LoginPresenter, OnLoginCallback, OnSyncJobIdCallback {
 
     private LoginView mLoginView;
     private LoginInteractor mLoginInteractor;
@@ -48,22 +55,44 @@ public class LoginPresenterImpl implements LoginPresenter, OnLoginCallback {
     }
 
     @Override
+    public void syncPostJobId(String username) {
+        mLoginInteractor.syncJobId(PrefUtils.getPrefUsername(),this);
+    }
+
+    //验证登陆正确回调函数
+    @Override
     public void onSuccess(User user) {
         PrefUtils.setDefaultPrefUserInfo(user);
         PrefUtils.setLogin(true);
 
-        Log.i("test", "onSuccess");
-
 //        JPushHelper jPushHelper = new JPushHelper(String.valueOf(userInfo.uid),null);
 //        jPushHelper.setAlias();
 
-        mLoginView.hideProgressBar();
-        mLoginView.startMainActivity();
+        //正确登陆后，同步已投递职位
+        syncPostJobId(PrefUtils.getPrefUsername());
     }
 
     @Override
     public void onFailure(String errorString) {
         mLoginView.hideProgressBar();
         mLoginView.toastMessage(errorString);
+    }
+
+    //同步已投递职位回调函数
+    @Override
+    public void onSyncSuccess(ArrayList<PostedJob> list) {
+        for (PostedJob postedJob : list){
+            com.shixipai.dbgenerator.PostedJob job = new com.shixipai.dbgenerator
+                    .PostedJob(null,postedJob.getIid());
+            ShiXiPaiApp.getDaoSession().getPostedJobDao().insert(job);
+        }
+
+        mLoginView.hideProgressBar();
+        mLoginView.startMainActivity();
+    }
+
+    @Override
+    public void onSyncFailure(String errorString) {
+
     }
 }

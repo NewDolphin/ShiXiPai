@@ -22,6 +22,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.shixipai.R;
 import com.shixipai.bean.JobDetail;
+import com.shixipai.db.DBHelper;
 import com.shixipai.support.ResourceHelper;
 import com.shixipai.ui.BaseActivity;
 import com.shixipai.ui.jobClassify.jobClassifyList.JobClassifyListModule;
@@ -145,6 +146,15 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
         tv_job_edu.setText(jobDetail.getEducation());
         tv_job_html.setText(Html.fromHtml(jobDetail.getInfo()));
 
+        if (DBHelper.checkJobPosted(jobId)){
+            bt_post.setBackground(ResourceHelper.getDrawable(R.drawable.background_bt_posted));
+            bt_post.setText("已投递");
+            bt_post.setClickable(false);
+            Drawable drawable = ResourceHelper.getDrawable(R.mipmap.ic_job_detail_posted);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            bt_post.setCompoundDrawables(null, null, null, null);
+        }
+
         hideProgress();
     }
 
@@ -158,7 +168,9 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
             bt_post.setClickable(false);
             Drawable drawable = ResourceHelper.getDrawable(R.mipmap.ic_job_detail_posted);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            bt_post.setCompoundDrawables(null, drawable, null, null);
+            bt_post.setCompoundDrawables(null, null, null, null);
+
+            DBHelper.addPostedJob(jobId);
         }
     }
 

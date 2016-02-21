@@ -18,6 +18,12 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/db-gen']
+        }
+    }
+
     allprojects {
         repositories {
             maven { url "https://jitpack.io" }
@@ -47,4 +53,5 @@ dependencies {
     compile('com.github.afollestad.material-dialogs:core:0.8.5.4@aar') {
         transitive = true
     }
+    compile 'de.greenrobot:greendao:1.3.7'
 }

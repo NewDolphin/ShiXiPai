@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.shixipai.R;
 import com.shixipai.bean.JobItem;
+import com.shixipai.db.DBHelper;
+import com.shixipai.support.ResourceHelper;
 import com.shixipai.ui.common.OnItemClickListener;
 
 import java.util.ArrayList;
@@ -96,7 +98,6 @@ public class JobListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
-
         if(getItemViewType(position) == ITEM_VIEW_TYPE_ITEM){
             JobItem jobItem = dataSet.get(position);
             ItemHolder itemHolder = (ItemHolder) viewHolder;
@@ -114,7 +115,15 @@ public class JobListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     onItemClicked.onItemClicked(v,position);
                 }
             };
-            itemHolder.bt_commit.setOnClickListener(onClickListener);
+            if (DBHelper.checkJobPosted(jobItem.getId())){
+                itemHolder.bt_commit.setClickable(false);
+                itemHolder.bt_commit.setBackground(ResourceHelper.getDrawable(R.drawable.background_bt_posted));
+                itemHolder.bt_commit.setText("已投递");
+            }else {
+                itemHolder.bt_commit.setOnClickListener(onClickListener);
+                itemHolder.bt_commit.setBackground(ResourceHelper.getDrawable(R.drawable.item_job_list_btn));
+                itemHolder.bt_commit.setText("投递简历");
+            }
         }
     }
 
