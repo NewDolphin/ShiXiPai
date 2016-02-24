@@ -4,6 +4,8 @@ import com.shixipai.interactor.job.JobClassifyListInteractor;
 import com.shixipai.interactor.job.JobClassifyListInteractorImpl;
 import com.shixipai.interactor.job.JobDetailInteractor;
 import com.shixipai.interactor.job.JobDetailInteractorImpl;
+import com.shixipai.interactor.jobfeedback.JobFeedbackInteractor;
+import com.shixipai.interactor.jobfeedback.JobFeedbackInteractorImpl;
 import com.shixipai.interactor.login.LoginInteractor;
 import com.shixipai.interactor.interview.InterviewQuestionInteractor;
 import com.shixipai.interactor.interview.InterviewQuestionInteractorImpl;
@@ -84,5 +86,11 @@ public class InteractorsModule {
     @Singleton
     public PostResumeInteractor providePostResumeInteractor(){
         return new PostResumeInteractorImpl();
+    }
+
+    @Provides
+    @Singleton
+    public JobFeedbackInteractor provideJobFeedbackInteractor(){
+        return new JobFeedbackInteractorImpl();
     }
 }

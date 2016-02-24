@@ -32,9 +32,9 @@ public class LoginActivity extends BaseActivity implements LoginView,View.OnClic
     @Inject
     LoginPresenter mLoginPresenter;
 
-    @Bind(R.id.username)
+ //   @Bind(R.id.username)
     EditText username;
-    @Bind(R.id.password)
+  //  @Bind(R.id.password)
     EditText password;
     @Bind(R.id.bt_login)
     Button bt_login;

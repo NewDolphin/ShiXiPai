@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/job_feedback_detail_toolbar"
+        layout="@layout/app_toolbar" />
+
+    <ProgressBar
+        android:id="@+id/pb_job_feedback_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        android:layout_marginTop="200dp"/>
+
+
+    <RelativeLayout
+        android:id="@+id/layout_job_feedback_item"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/iv_job_feedback_item"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_launcher"/>
+
+        <View
+            android:id="@+id/divider_job_feedback_item"
+            android:layout_width="1.5dp"
+            android:layout_height="match_parent"
+            android:background="#ddd"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@+id/iv_job_feedback_item"
+            android:layout_marginLeft="15dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/divider_job_feedback_item"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_job_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="前段开发实习生"
+                android:layout_weight="1"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/tv_job_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="北京"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/tv_job_salary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="200元/天"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_job_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2015-12-21"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="15dp"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/tv_job_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="[已查看]"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="18dp"
+            android:layout_marginBottom="18dp"
+            android:textSize="14sp"/>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/color_divider_white"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <View
+            android:id="@+id/circle_step_1"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/shape_circle_step"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"/>
+
+
+        <View
+            android:id="@+id/line_step_1"
+            android:layout_width="1.5dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="35dp"
+            android:layout_below="@+id/circle_step_1"
+            android:background="@color/gray"/>
+
+        <TextView
+            android:id="@+id/tv_step1_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已成功接受您的简历"
+            android:layout_toRightOf="@+id/circle_step_1"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/color_text_primary"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_step1_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016-01-30  09:39"
+            android:textSize="15sp"
+            android:layout_below="@+id/tv_step1_title"
+            android:layout_alignLeft="@+id/tv_step1_title"
+            android:layout_marginTop="10sp"/>
+
+
+
+        <View
+            android:id="@+id/circle_step_2"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/shape_circle_step"
+            android:layout_below="@+id/line_step_1"
+            android:layout_alignLeft="@+id/circle_step_1"/>
+
+
+        <View
+            android:id="@+id/line_step_2"
+            android:layout_width="1.5dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="35dp"
+            android:layout_below="@+id/circle_step_2"
+            android:background="@color/gray"/>
+
+        <TextView
+            android:id="@+id/tv_step2_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hr已查看您的简历,请等待回复"
+            android:layout_toRightOf="@+id/circle_step_2"
+            android:layout_marginTop="127dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/color_text_primary"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_step2_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016-01-30  13:10"
+            android:textSize="15sp"
+            android:layout_below="@+id/tv_step2_title"
+            android:layout_alignLeft="@+id/tv_step2_title"
+            android:layout_marginTop="10sp"/>
+
+        <View
+            android:id="@+id/circle_step_3"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/shape_circle_end"
+            android:layout_below="@+id/line_step_2"
+            android:layout_alignLeft="@+id/circle_step_1"/>
+
+        <TextView
+            android:id="@+id/tv_step3_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="面试通过，祝贺你赢得了这次实习机会"
+            android:layout_toRightOf="@+id/circle_step_3"
+            android:layout_marginTop="238dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/color_primary"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_step3_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016-02-04  09:20"
+            android:textSize="15sp"
+            android:layout_below="@+id/tv_step3_title"
+            android:layout_alignLeft="@+id/tv_step3_title"
+            android:textColor="@color/color_primary"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="15dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

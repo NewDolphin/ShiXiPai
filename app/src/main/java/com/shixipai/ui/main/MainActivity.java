@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +26,7 @@ import com.shixipai.support.PrefUtils;
 import com.shixipai.support.ResourceHelper;
 import com.shixipai.ui.BaseActivity;
 import com.shixipai.ui.home.HomeFragment;
-import com.shixipai.ui.jobFeedback.JobFragment;
+import com.shixipai.ui.jobFeedback.list.PostedJobListFragment;
 import com.shixipai.ui.resume.ResumeFragment;
 import com.shixipai.ui.search.SearchActivity;
 
@@ -82,7 +81,7 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
 
 
     private HomeFragment homeFragment;
-    private JobFragment jobFragment;
+    private PostedJobListFragment postedJobListFragment;
     private ResumeFragment resumeFragment;
 
     private AccountHeader mHeaderResult = null;
@@ -120,7 +119,7 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
     private void initialDrawer(Bundle savedInstanceState){
         final IProfile profile = new ProfileDrawerItem()
                 .withName(PrefUtils.getPrefUsername())
-                .withIcon(ResourceHelper.getDrawable(R.mipmap.ic_launcher))
+                .withIcon(ResourceHelper.getDrawable(R.drawable.ic_launcher))
                 .withIdentifier(100);
 
         mHeaderResult = new AccountHeaderBuilder()
@@ -250,10 +249,10 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
                 fragment = homeFragment;
                 break;
             case 2:
-                if (jobFragment == null) {
-                    jobFragment = new JobFragment();
+                if (postedJobListFragment == null) {
+                    postedJobListFragment = new PostedJobListFragment();
                 }
-                fragment = jobFragment;
+                fragment = postedJobListFragment;
                 break;
             case 3:
                 if (resumeFragment == null) {

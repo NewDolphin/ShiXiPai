@@ -38,8 +38,6 @@ public class JobClassifyListInteractorImpl implements JobClassifyListInteractor 
                     JobResponse jobResponse = new JobResponse();
                     jobResponse.rows = gson.fromJson(response.getString("data"),listType);
 
-                    Log.i("test",String.valueOf(jobResponse.rows.size()));
-
                     onGetJobItemsCallback.onSuccess(jobResponse);
                 } catch (JSONException e) {
                     e.printStackTrace();

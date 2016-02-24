@@ -3,7 +3,7 @@ package com.shixipai.ui.login;
 import com.shixipai.bean.User;
 
 /**
- * Created by M on 2015/3/23.
+ * Created by xiepeng on 16/1/13.
  */
 public interface OnLoginCallback {
 

@@ -1,6 +1,5 @@
 package com.shixipai.ui.home;
 
-import com.shixipai.interactor.home.HomeInteractor;
 import com.shixipai.interactor.search.SearchInteractor;
 import com.shixipai.ui.main.MainModule;
 

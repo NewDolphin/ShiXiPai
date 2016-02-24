@@ -43,6 +43,8 @@ public class ApiClient {
 
     private static final String SYNC_POSTED_JOB_URL = "rsm-hdjxcie-dsjuq-de";
 
+    private static final String JOB_FEEDBACK_URL = "rsm-hdjxcie-dsjuq-de/";
+
     static {
         client.setTimeout(DEFAULT_TIMEOUT);
         client.setCookieStore(sCookieStore);
@@ -173,8 +175,15 @@ public class ApiClient {
 
     public static void syncPostedJob(String username, JsonHttpResponseHandler handler){
 
-        client.get(BASE_URL+SYNC_POSTED_JOB_URL+"/"+username,handler);
+        client.get(BASE_URL + SYNC_POSTED_JOB_URL + "/" + username, handler);
 
+    }
+
+    public static void getJobFeedbackItems(int page,JsonHttpResponseHandler handler){
+        RequestParams params = new RequestParams();
+        params.put("page", page);
+
+        client.get(BASE_URL + JOB_FEEDBACK_URL+PrefUtils.getPrefUsername(), params, handler);
     }
 
 }
