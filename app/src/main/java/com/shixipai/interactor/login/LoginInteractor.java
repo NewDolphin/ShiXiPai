@@ -1,8 +1,8 @@
 package com.shixipai.interactor.login;
 
 
-import com.shixipai.ui.login.OnLoginCallback;
-import com.shixipai.ui.login.OnSyncJobIdCallback;
+import com.shixipai.ui.login.login.OnLoginCallback;
+import com.shixipai.ui.login.login.OnSyncJobIdCallback;
 
 /**
  * Created by xiepeng.

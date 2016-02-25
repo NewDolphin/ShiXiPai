@@ -1,6 +1,7 @@
 package com.shixipai.ui.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -22,6 +23,7 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.shixipai.R;
+import com.shixipai.bean.strategy.StrategyItem;
 import com.shixipai.support.PrefUtils;
 import com.shixipai.support.ResourceHelper;
 import com.shixipai.ui.BaseActivity;
@@ -77,8 +79,6 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
 
     @Bind(R.id.ic_resume)
     ImageView ic_resume;
-
-
 
     private HomeFragment homeFragment;
     private PostedJobListFragment postedJobListFragment;
@@ -315,5 +315,10 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
                 tag_resume.setTextColor(ResourceHelper.getColor(R.color.color_primary));
                 break;
         }
+    }
+
+    public static void actionStart(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
     }
 }

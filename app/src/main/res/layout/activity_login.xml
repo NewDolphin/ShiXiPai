@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_login_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_login"
@@ -73,18 +74,18 @@
             android:orientation="horizontal">
 
             <View
-                android:id="@+id/line1"
+                android:id="@+id/line_login"
                 android:layout_width="fill_parent"
                 android:layout_height="2dip"
                 android:layout_weight="1"
                 android:background="@color/color_primary" />
 
             <View
-                android:id="@+id/line2"
+                android:id="@+id/line_register"
                 android:layout_width="fill_parent"
                 android:layout_height="2dip"
                 android:layout_weight="1"
-                android:background="#FF909090" />
+                android:background="@color/color_line" />
         </LinearLayout>
 
         <FrameLayout

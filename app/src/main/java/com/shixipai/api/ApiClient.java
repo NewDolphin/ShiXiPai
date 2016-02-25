@@ -1,8 +1,6 @@
 package com.shixipai.api;
 
 import android.content.Context;
-import android.util.Log;
-
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.PersistentCookieStore;
@@ -22,6 +20,8 @@ public class ApiClient {
     private static final String BASE_URL = "http://182.92.11.218/shixipaiAPI/";
 
     private static final String LOGIN_URL = "android-cli-user-aha/login";
+
+    private static final String REGISTER_URL = "android-cli-user-aha/register";
 
     private static final String JOB_CLASSIFY_LIST_URL = "intern-datas/industry/";
 
@@ -64,6 +64,14 @@ public class ApiClient {
         params.put("password", password);
 
         client.post(BASE_URL + LOGIN_URL, params, handler);
+    }
+
+    public static void userRegister(String username, String password, JsonHttpResponseHandler handler){
+        RequestParams params = new RequestParams();
+        params.put("username", username);
+        params.put("password", password);
+
+        client.post(BASE_URL + REGISTER_URL, params, handler);
     }
 
     public static void userLogout() {

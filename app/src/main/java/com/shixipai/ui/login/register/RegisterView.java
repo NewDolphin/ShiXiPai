@@ -1,13 +1,10 @@
-package com.shixipai.ui.login;
+package com.shixipai.ui.login.register;
 
 /**
- * Created by M on 2015/3/23.
+ * Created by xiepeng on 16/2/25.
  */
-public interface LoginView {
-
+public interface RegisterView {
     void usernameError(String errorString);
-
-    void passwordError(String errorString);
 
     void showProgressBar();
 
@@ -18,5 +15,4 @@ public interface LoginView {
     void toastMessage(String msg);
 
     void startMainActivity();
-
 }

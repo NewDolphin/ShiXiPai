@@ -1,7 +1,7 @@
-package com.shixipai.ui.login;
+package com.shixipai.ui.login.login;
 
 /**
- * Created by M on 2015/3/23.
+ * Created by xiepeng on 16/1/13.
  */
 public interface LoginPresenter {
 

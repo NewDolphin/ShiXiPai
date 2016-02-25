@@ -3,7 +3,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
     <EditText
-        android:id="@+id/et_login_username"
+        android:id="@+id/et_register_username"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="20dp"
@@ -17,7 +17,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/et_login_password"
+        android:id="@+id/et_register_password"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="20dp"
@@ -31,15 +31,30 @@
         android:paddingLeft="10dp"
         android:drawablePadding="20dp" />
 
+    <EditText
+        android:id="@+id/et_register_password_again"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:singleLine="true"
+        android:drawableLeft="@drawable/ic_password"
+        android:password="true"
+        android:background="@drawable/shape_login_et"
+        android:hint="请再输入一次"
+        android:paddingLeft="10dp"
+        android:drawablePadding="20dp" />
+
     <Button
-        android:id="@+id/bt_login"
+        android:id="@+id/bt_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="18dp"
-        android:text="登陆"
+        android:text="注册"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:background="@color/color_primary"/>

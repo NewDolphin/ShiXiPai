@@ -1,9 +1,10 @@
-package com.shixipai.ui.login;
+package com.shixipai.ui.login.login;
 
 
 
 import com.shixipai.AppModule;
 import com.shixipai.interactor.login.LoginInteractor;
+import com.shixipai.ui.login.LoginActivity;
 
 import javax.inject.Singleton;
 
@@ -14,7 +15,7 @@ import dagger.Provides;
  * Created by xiepeng on 16/1/13.
  */
 @Module(
-        injects = LoginActivity.class,
+        injects = LoginFragment.class,
         addsTo = AppModule.class
 )
 public class LoginModule {

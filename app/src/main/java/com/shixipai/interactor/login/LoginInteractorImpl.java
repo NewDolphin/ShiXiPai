@@ -1,20 +1,14 @@
 package com.shixipai.interactor.login;
 
-import android.util.Log;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.shixipai.api.ApiClient;
-import com.shixipai.bean.JobItem;
-import com.shixipai.bean.JobResponse;
 import com.shixipai.bean.User;
-import com.shixipai.bean.edit.ResumeInfo;
 import com.shixipai.bean.login.PostedJob;
-import com.shixipai.ui.login.OnLoginCallback;
-import com.shixipai.ui.login.OnSyncJobIdCallback;
+import com.shixipai.ui.login.login.OnLoginCallback;
+import com.shixipai.ui.login.login.OnSyncJobIdCallback;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -49,9 +43,7 @@ public class LoginInteractorImpl implements LoginInteractor {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
-
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 super.onFailure(statusCode, headers, throwable, errorResponse);

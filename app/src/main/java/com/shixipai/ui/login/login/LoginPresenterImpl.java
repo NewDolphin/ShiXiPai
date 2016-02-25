@@ -1,13 +1,11 @@
-package com.shixipai.ui.login;
+package com.shixipai.ui.login.login;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.shixipai.R;
 import com.shixipai.ShiXiPaiApp;
 import com.shixipai.bean.User;
 import com.shixipai.bean.login.PostedJob;
-import com.shixipai.dbgenerator.PostedJobDao;
 import com.shixipai.interactor.login.LoginInteractor;
 import com.shixipai.support.NetworkHelper;
 import com.shixipai.support.PrefUtils;
@@ -15,14 +13,11 @@ import com.shixipai.support.ResourceHelper;
 
 import java.util.ArrayList;
 
-import de.greenrobot.dao.query.Query;
-
 
 /**
  * Created by xiepeng on 16/1/13.
  */
 public class LoginPresenterImpl implements LoginPresenter, OnLoginCallback, OnSyncJobIdCallback {
-
     private LoginView mLoginView;
     private LoginInteractor mLoginInteractor;
 

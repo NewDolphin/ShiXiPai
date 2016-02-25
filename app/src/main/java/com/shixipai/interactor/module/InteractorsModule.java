@@ -12,6 +12,8 @@ import com.shixipai.interactor.interview.InterviewQuestionInteractorImpl;
 import com.shixipai.interactor.interview.InterviewTopicInteractor;
 import com.shixipai.interactor.interview.InterviewTopicInteractorImpl;
 import com.shixipai.interactor.login.LoginInteractorImpl;
+import com.shixipai.interactor.login.RegisterInteractor;
+import com.shixipai.interactor.login.RegisterInteractorImpl;
 import com.shixipai.interactor.resume.PostResumeInteractor;
 import com.shixipai.interactor.resume.PostResumeInteractorImpl;
 import com.shixipai.interactor.resume.ResumeInteractor;
@@ -38,6 +40,12 @@ public class InteractorsModule {
     @Singleton
     public LoginInteractor provideLoginInteractor() {
         return new LoginInteractorImpl();
+    }
+
+    @Provides
+    @Singleton
+    public RegisterInteractor provideRegisterInteractor() {
+        return new RegisterInteractorImpl();
     }
 
     @Provides

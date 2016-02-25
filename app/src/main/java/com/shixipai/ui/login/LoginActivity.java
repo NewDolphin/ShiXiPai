@@ -1,25 +1,16 @@
 package com.shixipai.ui.login;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.shixipai.R;
-import com.shixipai.bean.User;
-import com.shixipai.support.PrefUtils;
-import com.shixipai.ui.BaseActivity;
-import com.shixipai.ui.main.MainActivity;
-
-import java.util.Arrays;
-import java.util.List;
-
-import javax.inject.Inject;
+import com.shixipai.support.ResourceHelper;
+import com.shixipai.ui.login.login.LoginFragment;
+import com.shixipai.ui.login.register.RegisterFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,17 +18,27 @@ import butterknife.ButterKnife;
 /**
  * Created by xiepeng on 16/1/13.
  */
-public class LoginActivity extends BaseActivity implements LoginView,View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+    @Bind(R.id.layout_login_success)
+    LinearLayout layout_login_success;
 
-    @Inject
-    LoginPresenter mLoginPresenter;
+    @Bind(R.id.line_login)
+    View line_login;
 
- //   @Bind(R.id.username)
-    EditText username;
-  //  @Bind(R.id.password)
-    EditText password;
-    @Bind(R.id.bt_login)
-    Button bt_login;
+    @Bind(R.id.line_register)
+    View line_register;
+
+    @Bind(R.id.tv_login)
+    TextView tv_login;
+
+    @Bind(R.id.tv_register)
+    TextView tv_register;
+
+    @Bind(R.id.layout_login_background)
+    LinearLayout layout_login_background;
+
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,59 +46,45 @@ public class LoginActivity extends BaseActivity implements LoginView,View.OnClic
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        bt_login.setOnClickListener(this);
+        layout_login_background.getBackground().setAlpha(100);
+
+        fragmentManager = this.getSupportFragmentManager();
+
+        showLogin();
+
+        tv_login.setOnClickListener(this);
+        tv_register.setOnClickListener(this);
     }
 
-    @Override
-    protected List<Object> getModules() {
-        return Arrays.<Object>asList(new LoginModule(this));
-    }
-
-    @Override
-    public void usernameError(String errorString) {
-
-    }
-
-    @Override
-    public void passwordError(String errorString) {
-
-    }
-
-    @Override
-    public void showProgressBar() {
-
-    }
-
-    @Override
-    public void hideProgressBar() {
-
-    }
-
-    @Override
-    public void hideKeyboard() {
-        InputMethodManager inputMethodManager = (InputMethodManager) getApplicationContext().
-                getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(password.getWindowToken(), 0);
-    }
-
-    @Override
-    public void toastMessage(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void startMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        this.finish();
-    }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.bt_login:
-                mLoginPresenter.validateLogin(username.getText().toString(), password.getText().toString());
+        switch (v.getId()){
+            case R.id.tv_login:
+                showLogin();
+                break;
+            case R.id.tv_register:
+                showRegister();
                 break;
         }
+    }
+
+    private void setLineGrey(){
+        line_login.setBackgroundColor(ResourceHelper.getColor(R.color.color_line));
+        line_register.setBackgroundColor(ResourceHelper.getColor(R.color.color_line));
+    }
+
+    private void showLogin(){
+        setLineGrey();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.layout_content, new LoginFragment()).commit();
+        line_login.setBackgroundColor(ResourceHelper.getColor(R.color.color_primary));
+    }
+
+    private void showRegister(){
+        setLineGrey();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.layout_content, new RegisterFragment()).commit();
+        line_register.setBackgroundColor(ResourceHelper.getColor(R.color.color_primary));
     }
 }

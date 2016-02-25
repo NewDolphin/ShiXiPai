@@ -1,4 +1,4 @@
-package com.shixipai.ui.login;
+package com.shixipai.ui.login.login;
 
 import com.shixipai.bean.User;
 
