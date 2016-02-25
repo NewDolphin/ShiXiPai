@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.shixipai.R;
 import com.shixipai.support.ResourceHelper;
@@ -35,7 +37,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     TextView tv_register;
 
     @Bind(R.id.layout_login_background)
-    LinearLayout layout_login_background;
+    RelativeLayout layout_login_background;
+
+    @Bind(R.id.pb_login)
+    ProgressBar progressBar;
 
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
@@ -86,5 +91,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.layout_content, new RegisterFragment()).commit();
         line_register.setBackgroundColor(ResourceHelper.getColor(R.color.color_primary));
+    }
+
+    public void showProgressbar(){
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    public void hideProgressbar(){
+        progressBar.setVisibility(View.GONE);
     }
 }

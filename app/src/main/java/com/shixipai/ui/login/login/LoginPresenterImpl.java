@@ -71,6 +71,11 @@ public class LoginPresenterImpl implements LoginPresenter, OnLoginCallback, OnSy
     public void onFailure(String errorString) {
         mLoginView.hideProgressBar();
         mLoginView.toastMessage(errorString);
+        if (errorString.equals("用户名不存在")){
+            mLoginView.usernameError(errorString);
+        }else {
+            mLoginView.passwordError(errorString);
+        }
     }
 
     //同步已投递职位回调函数

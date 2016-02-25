@@ -34,5 +34,6 @@ public class RegisterPresenterImpl implements RegisterPresenter, OnRegisterCallb
     public void onFailure(String errorString) {
         registerView.hideProgressBar();
         registerView.toastMessage(errorString);
+        registerView.usernameError(errorString);
     }
 }

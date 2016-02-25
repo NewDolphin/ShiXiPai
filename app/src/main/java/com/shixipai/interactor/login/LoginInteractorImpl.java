@@ -36,9 +36,9 @@ public class LoginInteractorImpl implements LoginInteractor {
                     if (result.equals("login success")) {
                         onLoginCallback.onSuccess(new User(username, password));
                     } else if (result.equals("login failed,user not exists")) {
-                        onLoginCallback.onFailure("login failed,user not exists");
+                        onLoginCallback.onFailure("用户名不存在");
                     } else if (result.equals("login failed,password worng")) {
-                        onLoginCallback.onFailure("login failed,password worng");
+                        onLoginCallback.onFailure("密码错误");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

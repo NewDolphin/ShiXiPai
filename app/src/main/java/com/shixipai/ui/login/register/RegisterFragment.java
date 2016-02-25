@@ -1,15 +1,18 @@
 package com.shixipai.ui.login.register;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.shixipai.R;
 import com.shixipai.ui.BaseFragment;
+import com.shixipai.ui.login.LoginActivity;
 import com.shixipai.ui.login.login.LoginModule;
 import com.shixipai.ui.login.login.LoginPresenter;
 import com.shixipai.ui.main.MainActivity;
@@ -59,22 +62,26 @@ public class RegisterFragment extends BaseFragment implements RegisterView, View
 
     @Override
     public void usernameError(String errorString) {
-
+        username.setError(errorString);
     }
 
     @Override
     public void showProgressBar() {
-
+        LoginActivity loginActivity = (LoginActivity)getActivity();
+        loginActivity.showProgressbar();
     }
 
     @Override
     public void hideProgressBar() {
-
+        LoginActivity loginActivity = (LoginActivity)getActivity();
+        loginActivity.hideProgressbar();
     }
 
     @Override
     public void hideKeyboard() {
-
+        InputMethodManager inputMethodManager = (InputMethodManager)getActivity().getApplicationContext().
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(password.getWindowToken(), 0);
     }
 
     @Override
@@ -85,6 +92,25 @@ public class RegisterFragment extends BaseFragment implements RegisterView, View
     @Override
     public void startMainActivity() {
         MainActivity.actionStart(getActivity());
+        getActivity().finish();
+        toastMessage("注册成功");
+    }
+
+    @Override
+    public boolean checkEmpty() {
+        if (username.getText().toString().equals("")){
+            username.setError("不能为空");
+            return false;
+        }
+        if (password.getText().toString().equals("")){
+            password.setError("不能为空");
+            return false;
+        }
+        if (password_again.getText().toString().equals("")){
+            password_again.setError("不能为空");
+            return false;
+        }
+        return true;
     }
 
 
@@ -95,7 +121,9 @@ public class RegisterFragment extends BaseFragment implements RegisterView, View
                 if (!password.getText().toString().equals(password_again.getText().toString())){
                     toastMessage("两次密码不相同");
                 }else {
-                    presenter.registerNewUser(username.getText().toString(),password.getText().toString());
+                    if (checkEmpty()){
+                        presenter.registerNewUser(username.getText().toString(),password.getText().toString());
+                    }
                 }
                 break;
         }

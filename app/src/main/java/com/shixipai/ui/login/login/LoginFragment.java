@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.shixipai.R;
 import com.shixipai.ui.BaseFragment;
+import com.shixipai.ui.login.LoginActivity;
 import com.shixipai.ui.main.MainActivity;
 
 import java.util.Arrays;
@@ -55,22 +56,24 @@ public class LoginFragment extends BaseFragment implements LoginView,View.OnClic
 
     @Override
     public void usernameError(String errorString) {
-
+        username.setError(errorString);
     }
 
     @Override
     public void passwordError(String errorString) {
-
+        password.setError(errorString);
     }
 
     @Override
     public void showProgressBar() {
-
+        LoginActivity loginActivity = (LoginActivity)getActivity();
+        loginActivity.showProgressbar();
     }
 
     @Override
     public void hideProgressBar() {
-
+        LoginActivity loginActivity = (LoginActivity)getActivity();
+        loginActivity.hideProgressbar();
     }
 
     @Override
@@ -88,14 +91,32 @@ public class LoginFragment extends BaseFragment implements LoginView,View.OnClic
     @Override
     public void startMainActivity() {
         MainActivity.actionStart(getActivity());
+        getActivity().finish();
+        toastMessage("登陆成功");
+    }
+
+    @Override
+    public boolean checkEmpty() {
+        if (username.getText().toString().equals("")){
+            username.setError("不能为空");
+            return false;
+        }
+        if (password.getText().toString().equals("")){
+            password.setError("不能为空");
+            return false;
+        }
+        return true;
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_login:
-                mLoginPresenter.validateLogin(username.getText().toString(), password.getText().toString());
+                if (checkEmpty()){
+                    mLoginPresenter.validateLogin(username.getText().toString(), password.getText().toString());
+                }
                 break;
         }
     }
+
 }

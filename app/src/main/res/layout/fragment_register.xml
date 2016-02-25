@@ -11,8 +11,9 @@
         android:singleLine="true"
         android:drawableLeft="@drawable/ic_username"
         android:background="@drawable/shape_login_et"
-        android:hint="请输入用户名"
+        android:hint="请输入用户名(请使用邮箱)"
         android:paddingLeft="10dp"
+        android:inputType="textEmailAddress"
         android:drawablePadding="20dp" >
     </EditText>
 

@@ -15,4 +15,6 @@ public interface RegisterView {
     void toastMessage(String msg);
 
     void startMainActivity();
+
+    boolean checkEmpty();
 }

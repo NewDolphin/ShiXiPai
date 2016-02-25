@@ -19,4 +19,5 @@ public interface LoginView {
 
     void startMainActivity();
 
+    boolean checkEmpty();
 }
