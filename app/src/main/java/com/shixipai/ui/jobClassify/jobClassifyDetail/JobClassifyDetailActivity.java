@@ -35,6 +35,8 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 /**
  * Created by xiepeng on 16/1/23.
@@ -83,6 +85,8 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
     Button bt_post;
 
     int jobId;
+
+    String jobTitle;
 
     private MaterialDialog dialog;
 
@@ -136,6 +140,8 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
 
     @Override
     public void addData(JobDetail jobDetail) {
+        jobTitle = jobDetail.getTitle()+jobDetail.getCompany();
+
         Picasso.with(this)
                 .load(jobDetail.getCompany_image())
                 .into(img_company);
@@ -176,15 +182,19 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_job_detail, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+            case R.id.action_share:
+                showShare(jobTitle);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -215,5 +225,22 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
                 .progressIndeterminateStyle(false); //false表示不是horizontal
 
         return builder;
+    }
+
+    private void showShare(String jobTitle) {
+        ShareSDK.initSDK(this);
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+//        oks.disableSSOWhenAuthorize();
+
+        oks.setTitle(jobTitle);
+
+        oks.setText("助你成为实力派");
+
+        oks.setImageUrl("http://182.92.11.218/i/shixipai/logo180px.png");
+
+        oks.setUrl("http://182.92.11.218/job/detail/"+String.valueOf(jobId));
+
+        oks.show(this);
     }
 }

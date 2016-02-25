@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="dbgenerator.dbgenerator">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dbgenerator/build/libs/dbgenerator.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
