@@ -51,6 +51,8 @@ public class ApiClient {
 
     private static final String GET_COLLECTED_JOB_URL = "azxlpaqo-xbkjk-jddd";
 
+    private static final String CHECK_UPDATE_URL = "znxmlpqanxcfhjd";
+
     static {
         client.setTimeout(DEFAULT_TIMEOUT);
         client.setCookieStore(sCookieStore);
@@ -226,5 +228,12 @@ public class ApiClient {
         params.put("page",page);
 
         client.post(context,BASE_URL + GET_COLLECTED_JOB_URL, params, handler);
+    }
+
+    public static void checkNewVersion(String version, JsonHttpResponseHandler handler) {
+        RequestParams params = new RequestParams();
+        params.put("version", version);
+
+        client.post(BASE_URL + CHECK_UPDATE_URL, params, handler);
     }
 }

@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -22,7 +24,9 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
+import com.shixipai.BuildConfig;
 import com.shixipai.R;
+import com.shixipai.api.ApiClient;
 import com.shixipai.bean.strategy.StrategyItem;
 import com.shixipai.support.PrefUtils;
 import com.shixipai.support.ResourceHelper;
@@ -33,6 +37,11 @@ import com.shixipai.ui.jobFeedback.list.PostedJobListFragment;
 import com.shixipai.ui.jobcollect.JobCollectActivity;
 import com.shixipai.ui.resume.ResumeFragment;
 import com.shixipai.ui.search.SearchActivity;
+import com.shixipai.ui.update.UpdateDialogFragment;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,6 +50,7 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by xiepeng on 16/1/13.
@@ -110,6 +120,24 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
         layout_home.setOnClickListener(this);
         layout_job.setOnClickListener(this);
         layout_resume.setOnClickListener(this);
+
+        ApiClient.checkNewVersion(BuildConfig.VERSION_CODE + "", new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                try {
+                    String result = response.getString("result");
+                    if (result.equals("0")){
+                        String url = response.getString("url");
+                        String description = response.getString("describe");
+                        UpdateDialogFragment.newInstance(url, description).show(MainActivity.this);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
     }
 
     @Override
