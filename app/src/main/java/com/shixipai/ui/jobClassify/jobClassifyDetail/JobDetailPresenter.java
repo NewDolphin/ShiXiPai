@@ -8,4 +8,6 @@ public interface JobDetailPresenter {
     void loadData(int id);
 
     void postJob(int id);
+
+    void collectJob(int id);
 }

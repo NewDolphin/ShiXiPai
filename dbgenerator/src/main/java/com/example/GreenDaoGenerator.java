@@ -9,6 +9,7 @@ public class GreenDaoGenerator {
         Schema schema = new Schema(1, "com.shixipai.dbgenerator");
 
         addPostJobId(schema);
+        addCollectedJobId(schema);
 
         new DaoGenerator().generateAll(schema, "/Users/xiepeng/Desktop/实习派/ShiXiPai/app/src/main/db-gen");
     }
@@ -21,5 +22,12 @@ public class GreenDaoGenerator {
 
         jobId.addIdProperty();
         jobId.addIntProperty("post_job_id");
+    }
+
+    private static void addCollectedJobId(Schema schema){
+        Entity jobId = schema.addEntity("CollectedJob");
+
+        jobId.addIdProperty();
+        jobId.addIntProperty("collect_job_id");
     }
 }

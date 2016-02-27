@@ -5,6 +5,7 @@ package com.shixipai.bean;
  */
 public class JobItem {
     private int id;
+    private int iid;
     private String area;
     private String start_time;
     private String title;
@@ -15,18 +16,6 @@ public class JobItem {
 
     public JobItem(){
 
-    }
-
-
-    public JobItem(int id, String area, String start_time, String title, String company,
-                   String salary, int posted) {
-        this.id = id;
-        this.area = area;
-        this.start_time = start_time;
-        this.title = title;
-        this.company = company;
-        this.salary = salary;
-        this.posted = posted;
     }
 
     public int getId() {
@@ -83,5 +72,13 @@ public class JobItem {
 
     public void setPosted(int posted) {
         this.posted = posted;
+    }
+
+    public int getIid() {
+        return iid;
+    }
+
+    public void setIid(int iid) {
+        this.iid = iid;
     }
 }

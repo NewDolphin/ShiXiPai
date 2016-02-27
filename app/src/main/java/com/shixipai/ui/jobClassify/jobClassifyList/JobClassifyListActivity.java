@@ -114,6 +114,9 @@ public class JobClassifyListActivity extends BaseActivity implements JobClassify
 
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
     }
 
     @Override
@@ -155,9 +158,7 @@ public class JobClassifyListActivity extends BaseActivity implements JobClassify
         JobItem jobItem = adapter.getItem(position);
         int id = jobItem.getId();
 
-        Intent intent = new Intent(this, JobClassifyDetailActivity.class);
-        intent.putExtra("id",id);
-        startActivity(intent);
+        JobClassifyDetailActivity.actionStart(this,id);
     }
 
     @Override

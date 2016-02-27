@@ -118,9 +118,7 @@ public class HomeFragment extends BaseFragment implements HomeView,OnItemClickLi
         JobItem jobItem = adapter.getItem(position);
         int id = jobItem.getId();
 
-        Intent intent = new Intent(getActivity(), JobClassifyDetailActivity.class);
-        intent.putExtra("id",id);
-        startActivity(intent);
+        JobClassifyDetailActivity.actionStart(getActivity(),id);
     }
 
     @Override

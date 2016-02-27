@@ -23,9 +23,11 @@ public class MainPresenterImpl implements MainPresenter {
         if (position == 1) {
             mMainView.startSettingsActivity();
         } else if (position == 2) {
-            mMainView.startFeedbackActivity();
-        } else if (position == 3) {
             mMainView.shareApp();
+        } else if (position == 3) {
+            mMainView.startFeedbackActivity();
+        } else if (position == 4){
+            mMainView.startCollectActivity();
         }
     }
 }

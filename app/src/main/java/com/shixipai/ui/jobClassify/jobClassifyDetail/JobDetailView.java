@@ -16,4 +16,6 @@ public interface JobDetailView {
     void addData(JobDetail jobDetail);
 
     void postJobSuccess(boolean result);
+
+    void collectJobSuccess(boolean result);
 }

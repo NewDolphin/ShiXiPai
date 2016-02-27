@@ -1,12 +1,14 @@
 package com.shixipai.ui.jobClassify.jobClassifyDetail;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +24,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.shixipai.R;
 import com.shixipai.bean.JobDetail;
+import com.shixipai.bean.edit.ResumeInfo;
 import com.shixipai.db.DBHelper;
 import com.shixipai.support.ResourceHelper;
 import com.shixipai.ui.BaseActivity;
@@ -90,6 +93,14 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
 
     private MaterialDialog dialog;
 
+    private static final String PARAM_ID = "id";
+
+    public static void actionStart(Context context,int id) {
+        Intent intent = new Intent(context, JobClassifyDetailActivity.class);
+        intent.putExtra(PARAM_ID,id);
+        context.startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,13 +110,14 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
 
         initToolBar();
 
-        jobId = getIntent().getIntExtra("id",0);
+        jobId = getIntent().getIntExtra(PARAM_ID,0);
 
         showProgress();
 
         presenter.loadData(jobId);
 
         bt_post.setOnClickListener(this);
+        bt_collect.setOnClickListener(this);
 
         dialog = createDialog(this).build();
     }
@@ -161,6 +173,15 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
             bt_post.setCompoundDrawables(null, null, null, null);
         }
 
+        if (DBHelper.checkJobCollected(jobId)){
+            bt_collect.setBackground(ResourceHelper.getDrawable(R.drawable.background_bt_posted));
+            bt_collect.setText("已收藏");
+            bt_collect.setClickable(false);
+            Drawable drawable = ResourceHelper.getDrawable(R.mipmap.ic_job_detail_collected);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            bt_collect.setCompoundDrawables(null, null, null, null);
+        }
+
         hideProgress();
     }
 
@@ -177,6 +198,22 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
             bt_post.setCompoundDrawables(null, null, null, null);
 
             DBHelper.addPostedJob(jobId);
+        }
+    }
+
+    @Override
+    public void collectJobSuccess(boolean result) {
+        if (result){
+            dialog.dismiss();
+            Toast.makeText(this,"收藏成功",Toast.LENGTH_SHORT).show();
+            bt_collect.setBackground(ResourceHelper.getDrawable(R.drawable.background_bt_posted));
+            bt_collect.setText("已收藏");
+            bt_collect.setClickable(false);
+            Drawable drawable = ResourceHelper.getDrawable(R.mipmap.ic_job_detail_collected);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            bt_collect.setCompoundDrawables(null, null, null, null);
+
+            DBHelper.addCollectedJob(jobId);
         }
     }
 
@@ -206,12 +243,16 @@ public class JobClassifyDetailActivity extends BaseActivity implements JobDetail
                 dialog.show();
                 presenter.postJob(jobId);
                 break;
+            case R.id.bt_job_detail_collect:
+                dialog.show();
+                presenter.collectJob(jobId);
+                break;
         }
     }
 
     private MaterialDialog.Builder createDialog(final Context context){
         MaterialDialog.Builder builder = new MaterialDialog.Builder(this)
-                .title("正在投递简历")
+                .title("正在上传")
                 .content("请稍等")
                 .negativeText("取消")
                 .onNegative(new MaterialDialog.SingleButtonCallback() {

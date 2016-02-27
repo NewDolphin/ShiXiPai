@@ -190,9 +190,7 @@ public class SearchActivity extends BaseActivity implements SearchView, OnItemCl
         JobItem jobItem = adapter.getItem(position);
         int id = jobItem.getId();
 
-        Intent intent = new Intent(this, JobClassifyDetailActivity.class);
-        intent.putExtra("id",id);
-        startActivity(intent);
+        JobClassifyDetailActivity.actionStart(this,id);
     }
 
     @Override

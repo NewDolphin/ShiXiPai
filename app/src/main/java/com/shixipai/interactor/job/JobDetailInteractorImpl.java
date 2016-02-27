@@ -5,6 +5,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.shixipai.api.ApiClient;
 import com.shixipai.bean.JobDetail;
 import com.shixipai.interactor.job.JobDetailInteractor;
+import com.shixipai.ui.jobClassify.jobClassifyDetail.OnCollectJobCallback;
 import com.shixipai.ui.jobClassify.jobClassifyDetail.OnGetJobDetailCallback;
 import com.shixipai.ui.jobClassify.jobClassifyDetail.OnPostJobCallback;
 
@@ -40,6 +41,18 @@ public class JobDetailInteractorImpl implements JobDetailInteractor {
                 super.onSuccess(statusCode, headers, response);
 
                 callback.onPostJobSuccess(true);
+            }
+        });
+    }
+
+    @Override
+    public void collectJob(int id, final OnCollectJobCallback callback) {
+        ApiClient.collectJob(id,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+
+                callback.onCollectJobSuccess(true);
             }
         });
     }

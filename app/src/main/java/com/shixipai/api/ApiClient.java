@@ -45,6 +45,12 @@ public class ApiClient {
 
     private static final String JOB_FEEDBACK_URL = "rsm-hdjxcie-dsjuq-de/";
 
+    private static final String FEEDBACK_URL = "ndhey-wpskxn-jalsdjkqi";
+
+    private static final String COLLECT_JOB_URL = "aogvbajowepfi-xbsjk-jisd";
+
+    private static final String GET_COLLECTED_JOB_URL = "azxlpaqo-xbkjk-jddd";
+
     static {
         client.setTimeout(DEFAULT_TIMEOUT);
         client.setCookieStore(sCookieStore);
@@ -194,4 +200,31 @@ public class ApiClient {
         client.get(BASE_URL + JOB_FEEDBACK_URL+PrefUtils.getPrefUsername(), params, handler);
     }
 
+    public static void sendFeedbackInfo(String email, String advice, JsonHttpResponseHandler handler){
+        RequestParams params = new RequestParams();
+        params.put("username",PrefUtils.getPrefUsername());
+        params.put("password",PrefUtils.getPrefUsername());
+        params.put("mail",email);
+        params.put("advise",advice);
+
+        client.post(BASE_URL + FEEDBACK_URL, params, handler);
+    }
+
+    public static void collectJob(int id, JsonHttpResponseHandler handler){
+        RequestParams params = new RequestParams();
+        params.put("username",PrefUtils.getPrefUsername());
+        params.put("password",PrefUtils.getPrefPassword());
+        params.put("iid",id);
+
+        client.post(BASE_URL + COLLECT_JOB_URL, params, handler);
+    }
+
+    public static void getCollectedJob(Context context, int page,JsonHttpResponseHandler handler){
+        RequestParams params = new RequestParams();
+        params.put("username",PrefUtils.getPrefUsername());
+        params.put("password",PrefUtils.getPrefPassword());
+        params.put("page",page);
+
+        client.post(context,BASE_URL + GET_COLLECTED_JOB_URL, params, handler);
+    }
 }

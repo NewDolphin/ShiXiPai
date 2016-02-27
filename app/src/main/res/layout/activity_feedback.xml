@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#DDD">
+
+    <include
+        android:id="@+id/toolbar_feedback"
+        layout="@layout/app_toolbar" />
+
+    <EditText
+        android:id="@+id/et_feedback_email"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="start"
+        android:background="@color/white"
+        android:inputType="textEmailAddress"
+        android:hint="您的邮箱地址"
+        android:padding="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_margin="8dp">
+        <EditText
+            android:id="@+id/et_feedback_advice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:background="@null"
+            android:hint="您的意见..."
+            android:padding="8dp" />
+    </LinearLayout>
+
+
+</LinearLayout>

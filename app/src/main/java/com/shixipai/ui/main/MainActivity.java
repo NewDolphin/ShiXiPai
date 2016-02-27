@@ -27,8 +27,10 @@ import com.shixipai.bean.strategy.StrategyItem;
 import com.shixipai.support.PrefUtils;
 import com.shixipai.support.ResourceHelper;
 import com.shixipai.ui.BaseActivity;
+import com.shixipai.ui.feedback.FeedbackActivity;
 import com.shixipai.ui.home.HomeFragment;
 import com.shixipai.ui.jobFeedback.list.PostedJobListFragment;
+import com.shixipai.ui.jobcollect.JobCollectActivity;
 import com.shixipai.ui.resume.ResumeFragment;
 import com.shixipai.ui.search.SearchActivity;
 
@@ -170,6 +172,13 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
                                 .withIdentifier(3).withSelectable(true)
                                 .withSelectedTextColor(ResourceHelper.getColor(R.color.color_primary))
 
+                        , new PrimaryDrawerItem()
+                                .withName("收藏")
+                                .withIcon(R.mipmap.ic_drawer_collect)
+                                .withIdentifier(4).withSelectable(true)
+                                .withSelectedTextColor(ResourceHelper.getColor(R.color.color_primary))
+
+
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                                                    @Override
@@ -274,7 +283,12 @@ public class MainActivity extends BaseActivity implements MainView,View.OnClickL
 
     @Override
     public void startFeedbackActivity() {
+        FeedbackActivity.actionStart(this);
+    }
 
+    @Override
+    public void startCollectActivity() {
+        JobCollectActivity.actionStart(this);
     }
 
     @Override

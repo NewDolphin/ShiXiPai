@@ -73,6 +73,10 @@
             android:label="攻略详情"/>
         <activity android:name=".ui.jobFeedback.detail.PostedJobDetailActivity"
             android:label="投递反馈" />
+        <activity android:name=".ui.feedback.FeedbackActivity"
+            android:label="意见反馈" />
+        <activity android:name=".ui.jobcollect.JobCollectActivity"
+            android:label="收藏职位" />
 
 
 

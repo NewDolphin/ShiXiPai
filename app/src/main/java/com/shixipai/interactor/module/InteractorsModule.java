@@ -1,9 +1,13 @@
 package com.shixipai.interactor.module;
 
+import com.shixipai.interactor.feedback.FeedbackInteractor;
+import com.shixipai.interactor.feedback.FeedbackInteractorImpl;
 import com.shixipai.interactor.job.JobClassifyListInteractor;
 import com.shixipai.interactor.job.JobClassifyListInteractorImpl;
 import com.shixipai.interactor.job.JobDetailInteractor;
 import com.shixipai.interactor.job.JobDetailInteractorImpl;
+import com.shixipai.interactor.jobcollect.JobCollectInteractor;
+import com.shixipai.interactor.jobcollect.JobCollectInteractorImpl;
 import com.shixipai.interactor.jobfeedback.JobFeedbackInteractor;
 import com.shixipai.interactor.jobfeedback.JobFeedbackInteractorImpl;
 import com.shixipai.interactor.login.LoginInteractor;
@@ -100,5 +104,17 @@ public class InteractorsModule {
     @Singleton
     public JobFeedbackInteractor provideJobFeedbackInteractor(){
         return new JobFeedbackInteractorImpl();
+    }
+
+    @Provides
+    @Singleton
+    public JobCollectInteractor provideJobCollectInteractor(){
+        return new JobCollectInteractorImpl();
+    }
+
+    @Provides
+    @Singleton
+    public FeedbackInteractor provideFeedbackInteractor(){
+        return new FeedbackInteractorImpl();
     }
 }

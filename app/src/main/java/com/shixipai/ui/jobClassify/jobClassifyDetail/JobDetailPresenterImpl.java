@@ -6,7 +6,8 @@ import com.shixipai.interactor.job.JobDetailInteractor;
 /**
  * Created by xiepeng on 16/1/25.
  */
-public class JobDetailPresenterImpl implements JobDetailPresenter,OnGetJobDetailCallback,OnPostJobCallback {
+public class JobDetailPresenterImpl implements JobDetailPresenter, OnGetJobDetailCallback,
+        OnPostJobCallback, OnCollectJobCallback{
     private JobDetailView jobDetailView;
     private JobDetailInteractor interactor;
 
@@ -25,7 +26,12 @@ public class JobDetailPresenterImpl implements JobDetailPresenter,OnGetJobDetail
         interactor.postJob(id,this);
     }
 
+    @Override
+    public void collectJob(int id) {
+        interactor.collectJob(id,this);
+    }
 
+    //加载数据
     @Override
     public void onSuccess(JobDetail jobDetail) {
         jobDetailView.addData(jobDetail);
@@ -36,6 +42,7 @@ public class JobDetailPresenterImpl implements JobDetailPresenter,OnGetJobDetail
 
     }
 
+    //投递职位
     @Override
     public void onPostJobSuccess(boolean result) {
         jobDetailView.postJobSuccess(result);
@@ -43,6 +50,17 @@ public class JobDetailPresenterImpl implements JobDetailPresenter,OnGetJobDetail
 
     @Override
     public void onPostJobFailed(String errorString) {
+
+    }
+
+    //收藏职位
+    @Override
+    public void onCollectJobSuccess(boolean result) {
+        jobDetailView.collectJobSuccess(true);
+    }
+
+    @Override
+    public void onCollectJobFailed(String errorString) {
 
     }
 }
