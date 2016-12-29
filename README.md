@@ -8,4 +8,26 @@
   4. 查看笔试题目及答案
   
 ## 项目截图
-![image](https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/first_page.jpg)
+<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/login.jpg" width = "25%" />
+
+<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/first_page.jpg" width = "25%" />
+
+<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/job_list.jpg" width = "25%" />
+
+<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/job_detail.jpg" width = "25%" />
+
+<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/job_search.jpg" width = "25%" />
+
+<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/my_resume.jpg" width = "25%" />
+
+<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/write_resume.jpg" width = "25%" />
+
+<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/post_status_list.jpg" width = "25%" />
+
+<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/post_status_detail.jpg" width = "25%" />
+
+<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/question_detail.jpg" width = "25%" />
+
+<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/friend_list.jpg" width = "25%" />
+
+<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/setting.jpg" width = "25%" />
