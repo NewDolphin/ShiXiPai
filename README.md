@@ -10,24 +10,14 @@
 ## 项目截图
 <img src="https://github.com/NewDolphin/ShiXiPai/blob/master/picture/1.jpg" width = "25%" />
 
-<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/first_page.jpg" width = "25%" />
+<img src="https://github.com/NewDolphin/ShiXiPai/blob/master/picture/2.jpg" width = "25%" />
 
-<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/job_list.jpg" width = "25%" />
+<img src="https://github.com/NewDolphin/ShiXiPai/blob/master/picture/3.jpg" width = "25%" />
 
-<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/job_detail.jpg" width = "25%" />
+<img src="https://github.com/NewDolphin/ShiXiPai/blob/master/picture/4.jpg" width = "25%" />
 
-<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/job_search.jpg" width = "25%" />
+<img src="https://github.com/NewDolphin/ShiXiPai/blob/master/picture/5.jpg" width = "25%" />
 
-<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/my_resume.jpg" width = "25%" />
+<img src="https://github.com/NewDolphin/ShiXiPai/blob/master/picture/6.jpg" width = "25%" />
 
-<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/write_resume.jpg" width = "25%" />
-
-<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/post_status_list.jpg" width = "25%" />
-
-<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/post_status_detail.jpg" width = "25%" />
-
-<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/question_detail.jpg" width = "25%" />
-
-<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/friend_list.jpg" width = "25%" />
-
-<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/setting.jpg" width = "25%" />
+<img src="https://github.com/NewDolphin/ShiXiPai/blob/master/picture/7.jpg" width = "25%" />
