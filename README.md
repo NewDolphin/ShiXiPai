@@ -8,7 +8,7 @@
   4. 查看笔试题目及答案
   
 ## 项目截图
-<img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/login.jpg" width = "25%" />
+<img src="https://github.com/NewDolphin/ShiXiPai/blob/master/picture/1.jpg" width = "25%" />
 
 <img src="https://github.com/NewDolphin/ShiXiPaiPicture/blob/master/picture/first_page.jpg" width = "25%" />
 
